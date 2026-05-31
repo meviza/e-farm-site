@@ -9,8 +9,12 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Replace REPLACE_FORM_ID with your Formspree form id (see README).
-const endpoint = "https://formspree.io/f/REPLACE_FORM_ID";
+// Formspree endpoint. Set PUBLIC_FORMSPREE_ID (repo Actions variable or .env)
+// to your Formspree form id; until then the form falls back to a mailto: to the
+// team inbox(es). Configure the Formspree form to notify BOTH
+// kerem.newton571@gmail.com and osrt91@gmail.com. See README.
+const formId = import.meta.env.PUBLIC_FORMSPREE_ID ?? "";
+const endpoint = formId ? `https://formspree.io/f/${formId}` : "https://formspree.io/f/REPLACE_FORM_ID";
 
 const labels = {
   company: t("form.company"),

@@ -28,18 +28,40 @@ type Props = { endpoint: string; labels: Labels };
 
 type Status = "idle" | "sending" | "success" | "error";
 
+// Fallback inbox(es) used when no Formspree endpoint is configured yet:
+// the submission opens the visitor's mail client pre-addressed to the team.
+const FALLBACK_EMAILS = "kerem.newton571@gmail.com,osrt91@gmail.com";
+
 export default function ReservationForm({ endpoint, labels: l }: Props) {
   const [status, setStatus] = useState<Status>("idle");
+  const isConfigured = Boolean(endpoint) && !endpoint.includes("REPLACE_FORM_ID");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // No backend wired yet → graceful mailto fallback to the team inbox(es).
+    if (!isConfigured) {
+      const lines: string[] = [];
+      for (const [k, v] of data.entries()) {
+        if (k.startsWith("_") || k === "_gotcha") continue;
+        if (String(v).trim()) lines.push(`${k}: ${v}`);
+      }
+      const body = encodeURIComponent(lines.join("\n"));
+      const subject = encodeURIComponent(l.subject);
+      window.location.href = `mailto:${FALLBACK_EMAILS}?subject=${subject}&body=${body}`;
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
     setStatus("sending");
     try {
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form),
+        body: data,
       });
       if (res.ok) {
         setStatus("success");

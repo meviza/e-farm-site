@@ -17,7 +17,7 @@
     "ctaPrimary": "Apoyar en BackerKit",
     "ctaSecondary": "Reservar como productor",
     "imageAlt": "Render del robot de recolección autónomo E-Farm en una hilera de invernadero",
-    "fallback": "Render principal próximamente",
+    "fallback": "Render conceptual ilustrativo",
     "chips": {
       "accuracy": "98 % de detección",
       "images": "10.000+ imágenes",
