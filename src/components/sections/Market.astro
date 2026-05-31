@@ -1,0 +1,40 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+import MarketChart from "../islands/MarketChart.tsx";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const labels = {
+  chartTitle: t("market.chartTitle"),
+  chartSource: t("market.chartSource"),
+  cagrValue: t("market.stats.cagrValue"),
+  cagrLabel: t("market.stats.cagrLabel"),
+  sizeValue: t("market.stats.sizeValue"),
+  sizeLabel: t("market.stats.sizeLabel"),
+  laborValue: t("market.stats.laborValue"),
+  laborLabel: t("market.stats.laborLabel"),
+  ghValue: t("market.stats.ghValue"),
+  ghLabel: t("market.stats.ghLabel"),
+};
+---
+
+<section id="market" class="scroll-mt-20 border-b border-border bg-bg">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("market.kicker")}
+      </p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{t("market.title")}</h2>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t("market.lead")}</p>
+    </Reveal>
+
+    <div class="mt-12">
+      <MarketChart client:visible labels={labels} />
+    </div>
+  </div>
+</section>

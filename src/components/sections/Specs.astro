@@ -1,0 +1,70 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+import { specs, specGroups } from "../../data/specs";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const grouped = specGroups.map((group) => ({
+  group,
+  rows: specs.filter((s) => s.group === group),
+}));
+---
+
+<section class="border-b border-border bg-bg">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("specs.kicker")}
+      </p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{t("specs.title")}</h2>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t("specs.lead")}</p>
+    </Reveal>
+
+    <Reveal client:visible>
+      <div class="mt-12 overflow-x-auto rounded-2xl border border-border bg-surface shadow-[var(--shadow)]">
+        <table class="w-full min-w-[640px] border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-border bg-surface-2">
+              <th scope="col" class="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-muted">
+                {t("specs.colSpec")}
+              </th>
+              <th scope="col" class="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-muted">
+                {t("specs.colValue")}
+              </th>
+              <th scope="col" class="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-muted">
+                {t("specs.colNote")}
+              </th>
+            </tr>
+          </thead>
+          {
+            grouped.map(({ group, rows }) => (
+              <tbody>
+                <tr class="bg-bg-elevated">
+                  <th
+                    scope="colgroup"
+                    colspan="3"
+                    class="px-5 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-brand"
+                  >
+                    {group}
+                  </th>
+                </tr>
+                {rows.map((r) => (
+                  <tr class="border-b border-border last:border-0">
+                    <td class="px-5 py-3 font-medium text-text">{r.label}</td>
+                    <td class="px-5 py-3 text-muted">{r.value}</td>
+                    <td class="px-5 py-3 font-mono text-xs text-muted">{r.note ?? "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            ))
+          }
+        </table>
+      </div>
+    </Reveal>
+  </div>
+</section>

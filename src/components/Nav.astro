@@ -1,0 +1,105 @@
+---
+import { useTranslations, type Lang } from "../i18n/ui";
+import ThemeToggle from "./islands/ThemeToggle.tsx";
+import LangSwitcher from "./LangSwitcher.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const home = lang === "en" ? `${base}/` : `${base}/${lang}/`;
+
+const links = [
+  { href: "#how", label: t("nav.howItWorks") },
+  { href: "#technology", label: t("nav.technology") },
+  { href: "#market", label: t("nav.market") },
+  { href: "#pledge", label: t("nav.pledge") },
+  { href: "#faq", label: t("nav.faq") },
+];
+
+const backerkit = "https://backerkit.com";
+---
+
+<a
+  href="#main"
+  class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+>
+  {t("nav.skipToContent")}
+</a>
+
+<header
+  class="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md supports-[backdrop-filter]:bg-bg/70"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href={home} class="flex items-center gap-2 font-semibold tracking-tight" aria-label="E-Farm home">
+      <span class="text-xl" aria-hidden="true">🌱</span>
+      <span class="text-lg">E-Farm</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden items-center gap-1 md:flex">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface-2 hover:text-text"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <ThemeToggle client:load />
+      <LangSwitcher lang={lang} />
+      <a
+        href={backerkit}
+        target="_blank"
+        rel="noopener"
+        class="hidden rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:inline-flex"
+      >
+        {t("nav.cta")}
+      </a>
+
+      <!-- Mobile menu -->
+      <details class="relative md:hidden">
+        <summary
+          class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-border bg-surface text-text transition-colors hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+          aria-label={t("nav.menu")}
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </summary>
+        <ul class="absolute right-0 z-50 mt-2 w-56 overflow-hidden rounded-xl border border-border bg-surface p-1 shadow-[var(--shadow)]">
+          {
+            links.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  class="block rounded-lg px-3 py-2.5 text-sm font-medium text-text transition-colors hover:bg-surface-2"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={backerkit}
+              target="_blank"
+              rel="noopener"
+              class="mt-1 block rounded-lg bg-brand px-3 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-strong"
+            >
+              {t("nav.cta")}
+            </a>
+          </li>
+        </ul>
+      </details>
+    </div>
+  </nav>
+</header>

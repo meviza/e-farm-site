@@ -1,0 +1,55 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+import ReservationForm from "../islands/ReservationForm.tsx";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Replace REPLACE_FORM_ID with your Formspree form id (see README).
+const endpoint = "https://formspree.io/f/REPLACE_FORM_ID";
+
+const labels = {
+  company: t("form.company"),
+  contact: t("form.contact"),
+  email: t("form.email"),
+  country: t("form.country"),
+  crop: t("form.crop"),
+  cropSelect: t("form.cropSelect"),
+  cropStrawberry: t("form.cropStrawberry"),
+  cropTomato: t("form.cropTomato"),
+  cropPepper: t("form.cropPepper"),
+  cropCucumber: t("form.cropCucumber"),
+  cropEggplant: t("form.cropEggplant"),
+  cropOther: t("form.cropOther"),
+  size: t("form.size"),
+  message: t("form.message"),
+  messagePlaceholder: t("form.messagePlaceholder"),
+  required: t("form.required"),
+  submit: t("form.submit"),
+  sending: t("form.sending"),
+  success: t("form.success"),
+  error: t("form.error"),
+  subject: t("form.subject"),
+};
+---
+
+<section id="reserve" class="scroll-mt-20 border-b border-border bg-bg">
+  <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("form.kicker")}
+      </p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{t("form.title")}</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted">{t("form.lead")}</p>
+    </Reveal>
+
+    <div class="mt-10">
+      <ReservationForm client:visible endpoint={endpoint} labels={labels} />
+      <p class="mt-4 text-center font-mono text-xs text-muted">{t("form.note")}</p>
+    </div>
+  </div>
+</section>

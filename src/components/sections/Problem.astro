@@ -1,0 +1,50 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stats = [
+  { value: t("problem.stats.ftaValue"), label: t("problem.stats.ftaLabel") },
+  { value: t("problem.stats.youngValue"), label: t("problem.stats.youngLabel") },
+  { value: t("problem.stats.usValue"), label: t("problem.stats.usLabel") },
+  { value: t("problem.stats.ghValue"), label: t("problem.stats.ghLabel") },
+];
+---
+
+<section class="border-b border-border bg-bg-elevated">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("problem.kicker")}
+      </p>
+      <h2 class="mt-3 max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl">
+        {t("problem.title")}
+      </h2>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{t("problem.lead")}</p>
+    </Reveal>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        stats.map((s, i) => (
+          <Reveal client:visible delay={i * 0.05}>
+            <div class="h-full rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow)]">
+              <div class="text-4xl font-extrabold tracking-tight text-brand">{s.value}</div>
+              <p class="mt-2 text-sm leading-relaxed text-muted">{s.label}</p>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+
+    <Reveal client:visible>
+      <p class="mt-10 max-w-3xl rounded-2xl border border-border bg-surface p-5 text-sm leading-relaxed text-muted shadow-[var(--shadow)]">
+        {t("problem.note")}
+      </p>
+    </Reveal>
+  </div>
+</section>

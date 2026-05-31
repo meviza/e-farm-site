@@ -1,0 +1,27 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+import CompetitorMatrix from "../islands/CompetitorMatrix.tsx";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="border-b border-border bg-bg-elevated">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("competitors.kicker")}
+      </p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{t("competitors.title")}</h2>
+      <p class="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{t("competitors.lead")}</p>
+    </Reveal>
+
+    <div class="mt-12">
+      <CompetitorMatrix client:visible usLabel={t("competitors.us")} />
+    </div>
+  </div>
+</section>

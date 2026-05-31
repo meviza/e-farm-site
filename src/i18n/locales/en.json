@@ -1,0 +1,261 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "technology": "Technology",
+    "market": "Market",
+    "pledge": "Pledge",
+    "faq": "FAQ",
+    "cta": "Back on BackerKit",
+    "menu": "Menu",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "badge": "Autonomous greenhouse harvesting",
+    "titleLead": "Harvesting that never",
+    "titleHighlight": "sleeps",
+    "subtitle": "E-Farm is an autonomous robot that detects, localises and gently picks ripe fruit in greenhouse rows — pairing a YOLOv8 vision model with LiDAR depth and a millimetre-precision 6-axis arm.",
+    "ctaPrimary": "Back on BackerKit",
+    "ctaSecondary": "Reserve as a grower",
+    "imageAlt": "Rendering of the E-Farm autonomous harvesting robot in a greenhouse row",
+    "fallback": "Hero render coming soon",
+    "chips": {
+      "accuracy": "98% detection",
+      "images": "10k+ images",
+      "crops": "5 crops",
+      "precision": "mm-precision arm",
+      "open": "open-source core"
+    }
+  },
+  "problem": {
+    "kicker": "The problem",
+    "title": "Greenhouses are running out of hands",
+    "lead": "Protected cropping is expanding while the agricultural workforce shrinks. Harvest labour is seasonal, scarce and increasingly expensive — and ripe fruit will not wait.",
+    "stats": {
+      "ftaValue": "~3.5M",
+      "ftaLabel": "Full-time farm jobs lost in the EU, 2009–2024",
+      "youngValue": "~11%",
+      "youngLabel": "Of EU farms run by people under 40",
+      "usValue": "~2.4M",
+      "usLabel": "Open agricultural jobs in the US (56% of farmers report shortages)",
+      "ghValue": "77,600 ha",
+      "ghLabel": "Greenhouse area in Turkey (Antalya alone ≈ 46%)"
+    },
+    "note": "Greenhouse area worldwide is large and growing: Netherlands ~10,260 ha, Spain ~76,600 ha (Almería ~40,000 ha). The structured, repeatable rows of protected cropping are an ideal environment for selective robotic harvesting."
+  },
+  "how": {
+    "kicker": "How it works",
+    "title": "A four-stage harvesting pipeline",
+    "lead": "Each ripe fruit flows through the same closed loop — perception to manipulation — many times per minute.",
+    "steps": {
+      "detectTitle": "1 · Detect",
+      "detectBody": "A YOLOv8 model classifies fruit and ripeness in the live camera feed, isolating only the produce ready to pick.",
+      "localizeTitle": "2 · Localize",
+      "localizeBody": "LiDAR and RGB-D depth fuse with the detection to place each fruit in 3D space with sub-centimetre accuracy.",
+      "graspTitle": "3 · Approach & grasp",
+      "graspBody": "The PAROL6 6-axis arm plans a collision-aware path and closes a force-controlled gripper for a gentle, bruise-free pick.",
+      "depositTitle": "4 · Deposit",
+      "depositBody": "Harvested fruit is placed into the onboard tray; telemetry and yield data stream to the fleet dashboard."
+    }
+  },
+  "tech": {
+    "kicker": "Technology",
+    "title": "Built on open robotics foundations",
+    "lead": "E-Farm composes proven open-source building blocks into a production harvesting stack — auditable, extensible and credibly engineered.",
+    "repo": "View the source on GitHub",
+    "cards": {
+      "visionTitle": "Computer vision",
+      "visionBody": "YOLOv8 (Ultralytics) detection and ripeness classification, trained via Roboflow on 10,000+ labeled images.",
+      "lidarTitle": "LiDAR depth",
+      "lidarBody": "LiDAR + Intel RealSense RGB-D fusion for robust 3D fruit localisation under variable greenhouse lighting.",
+      "armTitle": "6-axis arm",
+      "armBody": "PAROL6 open-hardware manipulator (GPLv3) driven through MoveIt 2 motion planning.",
+      "rosTitle": "ROS 2",
+      "rosBody": "ROS 2 Humble orchestrates perception, planning and control as composable, testable nodes.",
+      "bmsTitle": "Battery management",
+      "bmsBody": "LiFePO4 pack with an ESP32-based BMS, informed by the foxBMS open BMS reference.",
+      "fleetTitle": "Fleet & IoT",
+      "fleetBody": "MQTT telemetry feeds a web fleet dashboard and a companion mobile app for remote monitoring."
+    },
+    "foundations": "Open-source foundations: Ultralytics YOLOv8 · PAROL6 · MoveIt 2 · Intel RealSense · foxBMS · ROS 2."
+  },
+  "specs": {
+    "kicker": "Datasheet",
+    "title": "Technical specifications",
+    "lead": "Engineering figures for the current prototype. Items marked “target” are design goals for the pilot and production builds.",
+    "colSpec": "Specification",
+    "colValue": "Value",
+    "colNote": "Note"
+  },
+  "ai": {
+    "kicker": "Vision & AI",
+    "title": "Seeing ripeness, not just fruit",
+    "lead": "E-Farm’s own YOLOv8 model reaches 98% ripeness-detection accuracy on its project test set, trained on 10,000+ labeled images spanning five crops.",
+    "claimTitle": "E-Farm’s claim",
+    "claimBody": "98% ripeness-detection accuracy on the project test set (YOLOv8 trained via Roboflow on 10,000+ images, 5 crops). This is our internal evaluation, reported as claimed.",
+    "contextTitle": "Literature context",
+    "contextBody": "For external comparison, published and commercial systems report ripeness/selection accuracies in a similar range — e.g. Four Growers cite 98% ripe-selection, tomato studies report ~86%, and strawberry studies ~95%. These are independent results, distinct from E-Farm’s own claim.",
+    "contextLink": "See references",
+    "boxLabel": "ripe 0.98",
+    "boxLabelAlt": "unripe 0.71",
+    "mockCaption": "Illustrative detection overlay — bounding boxes and confidence are for demonstration."
+  },
+  "bms": {
+    "kicker": "Power",
+    "title": "Energy that lasts a shift",
+    "lead": "A LiFePO4 battery pack supervised by an ESP32-based battery-management system delivers a targeted ~8 hours of runtime, with live cell telemetry for safety and uptime.",
+    "point1": "LiFePO4 chemistry for long cycle life and thermal stability.",
+    "point2": "ESP32 BMS measures per-cell voltage, current and temperature.",
+    "point3": "Telemetry streams to the fleet dashboard for predictive maintenance.",
+    "attribution": "BMS architecture informed by the foxBMS open-source reference.",
+    "diagram": {
+      "cells": "LiFePO4 cells",
+      "bms": "ESP32 BMS",
+      "telemetry": "Telemetry"
+    }
+  },
+  "chassis": {
+    "kicker": "Mobility",
+    "title": "A base built for the rows",
+    "lead": "E-Farm’s mobile base derives from the NASA JPL Open Source Rover’s rocker-differential geometry, keeping all wheels grounded on uneven greenhouse floors and ramps.",
+    "point1": "Rocker-differential suspension for stable traversal of bumps and rails.",
+    "point2": "Compact footprint sized to standard greenhouse row spacing.",
+    "point3": "Low centre of gravity carrying battery, compute and arm.",
+    "diagramAlt": "Schematic side view of the rocker-differential chassis"
+  },
+  "market": {
+    "kicker": "Market",
+    "title": "A market growing toward $56B",
+    "lead": "The agricultural-robots market is projected to grow from USD 17.73B in 2025 to USD 56.26B by 2030 — a 26.0% CAGR. Selective harvesting is one of its hardest, highest-value frontiers.",
+    "chartTitle": "Agricultural robots market size (USD billions)",
+    "chartSource": "Source: MarketsandMarkets, 2025. Yearly values interpolated between the 2025 and 2030 anchors.",
+    "stats": {
+      "cagrValue": "26.0%",
+      "cagrLabel": "Market CAGR, 2025–2030",
+      "sizeValue": "$56.26B",
+      "sizeLabel": "Projected market size by 2030",
+      "laborValue": "56%",
+      "laborLabel": "US farmers reporting labour shortages",
+      "ghValue": "77,600 ha",
+      "ghLabel": "Greenhouse area in Turkey"
+    }
+  },
+  "competitors": {
+    "kicker": "Landscape",
+    "title": "Where E-Farm fits",
+    "lead": "The harvesting-robot field is real and well-funded. E-Farm’s differentiator is an open, auditable stack covering five greenhouse crops at a target price built for emerging-market growers. Click any column to sort.",
+    "sortHint": "Click a column header to sort.",
+    "us": "That’s us"
+  },
+  "refs": {
+    "kicker": "Evidence",
+    "title": "Selected references",
+    "lead": "Peer-reviewed and preprint literature that grounds E-Farm’s perception, localisation and harvesting approach."
+  },
+  "team": {
+    "kicker": "Team",
+    "title": "Three years of focused R&D",
+    "lead": "E-Farm was founded in 2022 at Gebze Bilişim Vadisi (Informatics Valley). A five-person multidisciplinary team has spent three years turning a research idea into a working prototype.",
+    "disciplines": {
+      "cv": "Computer vision",
+      "robotics": "Robotics & motion planning",
+      "embedded": "Embedded systems",
+      "mechanical": "Mechanical design",
+      "software": "Software & cloud"
+    },
+    "note": "We are an engineering team, not a marketing one — every claim on this page is something we can demonstrate or cite."
+  },
+  "roadmap": {
+    "kicker": "Roadmap",
+    "title": "From idea to fleet",
+    "lead": "Where we have been and where we are going. Milestones from 2025 onward are targets, not completed work.",
+    "targetBadge": "Target"
+  },
+  "tiers": {
+    "kicker": "Pledge",
+    "title": "Back the harvest",
+    "lead": "Choose a pledge tier. All prices are illustrative targets for the campaign and may change before the term sheet is finalised.",
+    "cta": "Back on BackerKit",
+    "limited": "Limited",
+    "termSheet": "Pledges are commitments to the campaign, not a final purchase. Final pricing, specifications and delivery terms will be set out in the backer term sheet before any charge."
+  },
+  "resources": {
+    "kicker": "Resources",
+    "title": "Backer resources",
+    "lead": "Documentation for evaluators, partners and backers. Items marked “ready” are available now; others publish during the campaign.",
+    "ready": "Ready",
+    "soon": "Coming soon",
+    "items": {
+      "whitepaper": "Technical whitepaper",
+      "datasheet": "Product datasheet",
+      "pressKit": "Press kit",
+      "termSheet": "Backer term sheet",
+      "parol6": "PAROL6 manual"
+    },
+    "download": "Download"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Questions, answered honestly",
+    "lead": "The things backers and growers ask most. If something is uncertain, we say so.",
+    "items": {
+      "cropsQ": "Which crops does E-Farm harvest?",
+      "cropsA": "The vision model is trained for five crops: strawberry, tomato, pepper, cucumber and eggplant. Performance varies by crop and growing system; strawberry and tomato are the most mature today.",
+      "accuracyQ": "What does “98% accuracy” actually mean?",
+      "accuracyA": "It is the ripeness-detection accuracy of our YOLOv8 model on our own held-out project test set — an internal evaluation, reported as claimed. It is not a guarantee of pick success in every greenhouse; field performance depends on lighting, occlusion and crop layout.",
+      "deliveryQ": "When will robots ship, and what are the risks?",
+      "deliveryA": "E-Farm is a prototype moving toward pilot. The roadmap targets pre-series production in 2026 and fleet rollout in 2027. Hardware timelines carry real risk: supply chains, certification and field validation can slip. We will communicate changes transparently.",
+      "opensourceQ": "Why build on PAROL6 and other open-source projects?",
+      "opensourceA": "Open foundations like PAROL6 (GPLv3), MoveIt 2 and ROS 2 are auditable, well-documented and avoid vendor lock-in. They let a small team build credibly and let backers inspect what they are funding. We honour each project’s licence.",
+      "safetyQ": "Is it safe, and what about CE marking?",
+      "safetyA": "The robot operates in structured greenhouse rows with force-controlled grasping. Full machinery-safety compliance and CE marking are part of the pilot-to-production path and are not yet complete; we treat them as gating requirements before commercial delivery.",
+      "refundQ": "What is the refund / cancellation policy?",
+      "refundA": "Pledges are campaign commitments, not final purchases. Refund and cancellation terms will be defined in the backer term sheet before any charge is finalised. Reserve now to lock a slot without obligation to complete.",
+      "privacyQ": "How is my data handled?",
+      "privacyA": "Reservation form data is sent only to the E-Farm team to follow up with you, via Formspree. We do not sell your data. Robot telemetry stays within the grower’s fleet account.",
+      "reservationQ": "How does the grower reservation work?",
+      "reservationA": "The reservation form registers your interest as a commercial grower — crop, greenhouse size and contact. It is non-binding and simply puts you in the pilot queue and on our priority-deployment list."
+    }
+  },
+  "form": {
+    "kicker": "Reserve",
+    "title": "Reserve as a grower",
+    "lead": "Tell us about your greenhouse and we’ll keep you in the pilot queue. No payment, no obligation.",
+    "company": "Company name",
+    "contact": "Contact name",
+    "email": "Email",
+    "country": "Country",
+    "crop": "Primary crop",
+    "cropSelect": "Select a crop",
+    "cropStrawberry": "Strawberry",
+    "cropTomato": "Tomato",
+    "cropPepper": "Pepper",
+    "cropCucumber": "Cucumber",
+    "cropEggplant": "Eggplant",
+    "cropOther": "Other",
+    "size": "Greenhouse size (ha)",
+    "message": "Message",
+    "messagePlaceholder": "Anything you’d like us to know about your operation…",
+    "required": "required",
+    "submit": "Submit reservation",
+    "sending": "Sending…",
+    "success": "Thank you — your reservation reached the E-Farm team. We’ll be in touch.",
+    "error": "Something went wrong. Please try again, or email us directly.",
+    "note": "Submissions are delivered to the E-Farm team. We never sell your data.",
+    "subject": "New E-Farm grower reservation"
+  },
+  "footer": {
+    "tagline": "Autonomous greenhouse fruit-harvesting robots.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "github": "GitHub",
+    "backerkit": "BackerKit",
+    "docs": "Documentation",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "social": "Social",
+    "attribution": "Manipulator based on PAROL6 (GPLv3). Built with Astro.",
+    "rights": "E-Farm. All rights reserved.",
+    "location": "Gebze Bilişim Vadisi, Turkey"
+  }
+}

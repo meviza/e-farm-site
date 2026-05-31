@@ -1,0 +1,33 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+import Reveal from "../Reveal.tsx";
+import FaqAccordion from "../islands/FaqAccordion.tsx";
+import { faqKeys } from "../../data/faq";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items = faqKeys.map((k) => ({
+  q: t(`faq.items.${k}Q`),
+  a: t(`faq.items.${k}A`),
+}));
+---
+
+<section id="faq" class="scroll-mt-20 border-b border-border bg-bg-elevated">
+  <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <Reveal client:visible>
+      <p class="font-mono text-sm font-medium uppercase tracking-wide text-brand">
+        {t("faq.kicker")}
+      </p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{t("faq.title")}</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted">{t("faq.lead")}</p>
+    </Reveal>
+
+    <div class="mt-10">
+      <FaqAccordion client:visible items={items} />
+    </div>
+  </div>
+</section>

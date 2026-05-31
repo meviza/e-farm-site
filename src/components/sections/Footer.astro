@@ -1,0 +1,79 @@
+---
+import { useTranslations, type Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const repo = "https://github.com/meviza/E-Farm-Autonomous-Harvesting-Robot";
+const backerkit = "https://backerkit.com";
+const year = new Date().getFullYear();
+
+const product = [
+  { href: "#how", label: t("nav.howItWorks") },
+  { href: "#technology", label: t("nav.technology") },
+  { href: "#pledge", label: t("nav.pledge") },
+];
+const company = [
+  { href: repo, label: t("footer.github"), ext: true },
+  { href: backerkit, label: t("footer.backerkit"), ext: true },
+  { href: repo, label: t("footer.docs"), ext: true },
+];
+---
+
+<footer class="bg-bg-elevated">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="text-xl" aria-hidden="true">🌱</span>
+          <span class="text-lg">E-Farm</span>
+        </div>
+        <p class="mt-3 max-w-xs text-sm leading-relaxed text-muted">{t("footer.tagline")}</p>
+        <p class="mt-3 font-mono text-xs text-muted">{t("footer.location")}</p>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{t("footer.product")}</h3>
+        <ul class="mt-3 space-y-2">
+          {
+            product.map((l) => (
+              <li>
+                <a href={l.href} class="text-sm text-text transition-colors hover:text-brand">
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-muted">{t("footer.company")}</h3>
+        <ul class="mt-3 space-y-2">
+          {
+            company.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  target={l.ext ? "_blank" : undefined}
+                  rel={l.ext ? "noopener" : undefined}
+                  class="text-sm text-text transition-colors hover:text-brand"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {t("footer.rights")}</p>
+      <p class="font-mono">{t("footer.attribution")}</p>
+    </div>
+  </div>
+</footer>
