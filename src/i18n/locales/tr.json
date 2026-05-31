@@ -1,3 +1,261 @@
 {
-  "_note": "Translations fall back to English (en.json) until localized. See README."
+  "nav": {
+    "howItWorks": "Nasıl çalışır",
+    "technology": "Teknoloji",
+    "market": "Pazar",
+    "pledge": "Destek ol",
+    "faq": "SSS",
+    "cta": "BackerKit'te destek ol",
+    "menu": "Menü",
+    "skipToContent": "İçeriğe geç"
+  },
+  "hero": {
+    "badge": "Otonom sera hasadı",
+    "titleLead": "Hiç durmadan",
+    "titleHighlight": "çalışan hasat",
+    "subtitle": "E-Farm, sera sıralarındaki olgun meyveleri algılayan, konumlandıran ve özenle toplayan otonom bir robottur; bir YOLOv8 görü modelini LiDAR derinliği ve milimetre hassasiyetli 6 eksenli bir kol ile birleştirir.",
+    "ctaPrimary": "BackerKit'te destek ol",
+    "ctaSecondary": "Üretici olarak rezervasyon yap",
+    "imageAlt": "Bir sera sırasında otonom hasat robotu E-Farm'ın görseli",
+    "fallback": "Tanıtım görseli yakında",
+    "chips": {
+      "accuracy": "%98 algılama",
+      "images": "10.000+ görüntü",
+      "crops": "5 ürün",
+      "precision": "mm hassasiyetli kol",
+      "open": "açık kaynaklı çekirdek"
+    }
+  },
+  "problem": {
+    "kicker": "Sorun",
+    "title": "Seralarda işgücü tükeniyor",
+    "lead": "Örtüaltı üretimi büyürken tarım işgücü azalıyor. Hasat işçiliği mevsimlik, kıt ve giderek pahalı hâle geliyor; olgun meyve ise beklemiyor.",
+    "stats": {
+      "ftaValue": "~3,5 milyon",
+      "ftaLabel": "AB'de kaybedilen tam zamanlı tarım işi, 2009–2024",
+      "youngValue": "~%11",
+      "youngLabel": "AB çiftliklerinin 40 yaş altındaki kişilerce işletilen oranı",
+      "usValue": "~2,4 milyon",
+      "usLabel": "ABD'deki açık tarım işi (çiftçilerin %56'sı işgücü kıtlığı bildiriyor)",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Türkiye'deki sera alanı (yalnızca Antalya ≈ %46)"
+    },
+    "note": "Dünya genelinde sera alanı geniş ve büyüyor: Hollanda ~10.260 ha, İspanya ~76.600 ha (Almería ~40.000 ha). Örtüaltı üretiminin düzenli ve tekrarlanabilir sıraları, seçici robotik hasat için ideal bir ortamdır."
+  },
+  "how": {
+    "kicker": "Nasıl çalışır",
+    "title": "Dört aşamalı bir hasat hattı",
+    "lead": "Her olgun meyve aynı kapalı döngüden — algılamadan manipülasyona — dakikada birçok kez geçer.",
+    "steps": {
+      "detectTitle": "1 · Algıla",
+      "detectBody": "Bir YOLOv8 modeli, canlı kamera görüntüsünde meyveyi ve olgunluğu sınıflandırarak yalnızca toplanmaya hazır ürünü ayırır.",
+      "localizeTitle": "2 · Konumlandır",
+      "localizeBody": "LiDAR ve RGB-D derinliği algılamayla birleşerek her meyveyi santimetre altı doğrulukla 3 boyutlu uzaya yerleştirir.",
+      "graspTitle": "3 · Yaklaş ve kavra",
+      "graspBody": "PAROL6 6 eksenli kol, çarpışmaları gözeten bir yol planlar ve nazik, ezilmesiz bir toplama için kuvvet kontrollü tutucuyu kapatır.",
+      "depositTitle": "4 · Yerleştir",
+      "depositBody": "Toplanan meyve araç üstündeki tepsiye bırakılır; telemetri ve verim verileri filo paneline akar."
+    }
+  },
+  "tech": {
+    "kicker": "Teknoloji",
+    "title": "Açık robotik temeller üzerine inşa edildi",
+    "lead": "E-Farm, kanıtlanmış açık kaynaklı yapı taşlarını üretime hazır bir hasat yığınında bir araya getirir — denetlenebilir, genişletilebilir ve güvenilir biçimde mühendislik edilmiş.",
+    "repo": "Kaynak kodu GitHub'da görüntüle",
+    "cards": {
+      "visionTitle": "Bilgisayarlı görü",
+      "visionBody": "YOLOv8 (Ultralytics) algılama ve olgunluk sınıflandırması, 10.000'den fazla etiketli görüntü üzerinde Roboflow ile eğitildi.",
+      "lidarTitle": "LiDAR derinliği",
+      "lidarBody": "Değişken sera aydınlatmasında sağlam 3B meyve konumlandırması için LiDAR + Intel RealSense RGB-D füzyonu.",
+      "armTitle": "6 eksenli kol",
+      "armBody": "MoveIt 2 hareket planlaması ile sürülen PAROL6 açık donanım manipülatörü (GPLv3).",
+      "rosTitle": "ROS 2",
+      "rosBody": "ROS 2 Humble; algılama, planlama ve kontrolü birleştirilebilir, test edilebilir düğümler olarak yönetir.",
+      "bmsTitle": "Batarya yönetimi",
+      "bmsBody": "Açık BMS referansı foxBMS'ten esinlenen, ESP32 tabanlı BMS'e sahip LiFePO4 paket.",
+      "fleetTitle": "Filo ve IoT",
+      "fleetBody": "MQTT telemetrisi, uzaktan izleme için bir web filo panelini ve eşlik eden bir mobil uygulamayı besler."
+    },
+    "foundations": "Açık kaynaklı temeller: Ultralytics YOLOv8 · PAROL6 · MoveIt 2 · Intel RealSense · foxBMS · ROS 2."
+  },
+  "specs": {
+    "kicker": "Teknik föy",
+    "title": "Teknik özellikler",
+    "lead": "Mevcut prototipe ait mühendislik değerleri. “Hedef” olarak işaretlenen maddeler, pilot ve üretim sürümleri için tasarım hedefleridir.",
+    "colSpec": "Özellik",
+    "colValue": "Değer",
+    "colNote": "Not"
+  },
+  "ai": {
+    "kicker": "Görü ve YZ",
+    "title": "Sadece meyveyi değil, olgunluğu görmek",
+    "lead": "E-Farm'ın kendi YOLOv8 modeli, beş ürünü kapsayan 10.000'den fazla etiketli görüntüyle eğitilerek proje test kümesinde %98 olgunluk tespiti doğruluğuna ulaşır.",
+    "claimTitle": "E-Farm'ın iddiası",
+    "claimBody": "Proje test kümesinde %98 olgunluk tespiti doğruluğu (YOLOv8, 10.000'den fazla görüntü ve 5 ürün üzerinde Roboflow ile eğitildi). Bu, iddia edildiği şekliyle bildirilen kendi iç değerlendirmemizdir.",
+    "contextTitle": "Literatür bağlamı",
+    "contextBody": "Dışsal karşılaştırma için, yayımlanmış ve ticari sistemler benzer aralıkta olgunluk/seçim doğrulukları bildiriyor — örneğin Four Growers %98 olgun seçimi belirtiyor, domates çalışmaları ~%86 ve çilek çalışmaları ~%95 raporluyor. Bunlar bağımsız sonuçlardır ve E-Farm'ın kendi iddiasından ayrıdır.",
+    "contextLink": "Kaynakları gör",
+    "boxLabel": "olgun 0,98",
+    "boxLabelAlt": "ham 0,71",
+    "mockCaption": "Açıklayıcı algılama bindirmesi — sınırlayıcı kutular ve güven değerleri gösterim amaçlıdır."
+  },
+  "bms": {
+    "kicker": "Güç",
+    "title": "Bir vardiya boyu dayanan enerji",
+    "lead": "ESP32 tabanlı bir batarya yönetim sistemiyle denetlenen bir LiFePO4 batarya paketi, güvenlik ve çalışma süresi için canlı hücre telemetrisiyle birlikte hedeflenen ~8 saatlik çalışma süresi sunar.",
+    "point1": "Uzun çevrim ömrü ve termal kararlılık için LiFePO4 kimyası.",
+    "point2": "ESP32 BMS, her hücrenin gerilimini, akımını ve sıcaklığını ölçer.",
+    "point3": "Kestirimci bakım için telemetri filo paneline akar.",
+    "attribution": "BMS mimarisi açık kaynaklı foxBMS referansından esinlenmiştir.",
+    "diagram": {
+      "cells": "LiFePO4 hücreler",
+      "bms": "ESP32 BMS",
+      "telemetry": "Telemetri"
+    }
+  },
+  "chassis": {
+    "kicker": "Hareketlilik",
+    "title": "Sıralar için yapılmış bir taban",
+    "lead": "E-Farm'ın mobil tabanı, NASA JPL Open Source Rover'ın rocker-diferansiyel geometrisinden türetilmiştir ve engebeli sera zeminlerinde ve rampalarda tüm tekerlekleri yere temas hâlinde tutar.",
+    "point1": "Tümsekler ve rayların üzerinden kararlı geçiş için rocker-diferansiyel süspansiyon.",
+    "point2": "Standart sera sıra aralığına göre boyutlandırılmış kompakt taban alanı.",
+    "point3": "Bataryayı, işlem birimini ve kolu taşıyan alçak ağırlık merkezi.",
+    "diagramAlt": "Rocker-diferansiyel şasinin şematik yan görünümü"
+  },
+  "market": {
+    "kicker": "Pazar",
+    "title": "56 milyar dolara doğru büyüyen bir pazar",
+    "lead": "Tarımsal robot pazarının 2025'te 17,73 milyar dolardan 2030'a kadar 56,26 milyar dolara büyümesi öngörülüyor — %26,0 YBBO. Seçici hasat, bu pazarın en zorlu ve en yüksek değerli sınırlarından biridir.",
+    "chartTitle": "Tarımsal robot pazar büyüklüğü (milyar USD)",
+    "chartSource": "Kaynak: MarketsandMarkets, 2025. Yıllık değerler 2025 ve 2030 referans noktaları arasında ara değerlenmiştir.",
+    "stats": {
+      "cagrValue": "%26,0",
+      "cagrLabel": "Pazar YBBO, 2025–2030",
+      "sizeValue": "$56.26B",
+      "sizeLabel": "2030'a kadar öngörülen pazar büyüklüğü",
+      "laborValue": "%56",
+      "laborLabel": "İşgücü kıtlığı bildiren ABD'li çiftçiler",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Türkiye'deki sera alanı"
+    }
+  },
+  "competitors": {
+    "kicker": "Manzara",
+    "title": "E-Farm nerede konumlanıyor",
+    "lead": "Hasat robotu alanı gerçek ve iyi finanse ediliyor. E-Farm'ın ayırt edici yanı, gelişmekte olan pazar üreticileri için tasarlanmış bir hedef fiyatla beş sera ürününü kapsayan açık ve denetlenebilir bir yığındır. Sıralamak için herhangi bir sütuna tıklayın.",
+    "sortHint": "Sıralamak için bir sütun başlığına tıklayın.",
+    "us": "Bu biziz"
+  },
+  "refs": {
+    "kicker": "Kanıt",
+    "title": "Seçilmiş kaynaklar",
+    "lead": "E-Farm'ın algılama, konumlandırma ve hasat yaklaşımını temellendiren hakemli ve ön baskı literatürü."
+  },
+  "team": {
+    "kicker": "Ekip",
+    "title": "Üç yıllık odaklı Ar-Ge",
+    "lead": "E-Farm, 2022'de Gebze Bilişim Vadisi'nde kuruldu. Beş kişilik çok disiplinli bir ekip, bir araştırma fikrini çalışan bir prototipe dönüştürmek için üç yıl harcadı.",
+    "disciplines": {
+      "cv": "Bilgisayarlı görü",
+      "robotics": "Robotik ve hareket planlama",
+      "embedded": "Gömülü sistemler",
+      "mechanical": "Mekanik tasarım",
+      "software": "Yazılım ve bulut"
+    },
+    "note": "Biz bir mühendislik ekibiyiz, pazarlama ekibi değil — bu sayfadaki her iddia gösterebileceğimiz veya kaynak verebileceğimiz bir şeydir."
+  },
+  "roadmap": {
+    "kicker": "Yol haritası",
+    "title": "Fikirden filoya",
+    "lead": "Nereden geldiğimiz ve nereye gittiğimiz. 2025 ve sonrasındaki kilometre taşları hedeftir, tamamlanmış işler değil.",
+    "targetBadge": "Hedef"
+  },
+  "tiers": {
+    "kicker": "Destek ol",
+    "title": "Hasada destek ol",
+    "lead": "Bir destek kademesi seçin. Tüm fiyatlar kampanya için örnek hedeflerdir ve şartname kesinleşmeden önce değişebilir.",
+    "cta": "BackerKit'te destek ol",
+    "limited": "Sınırlı",
+    "termSheet": "Destekler kampanyaya yönelik taahhütlerdir, nihai bir satın alma değildir. Nihai fiyatlandırma, özellikler ve teslimat şartları, herhangi bir tahsilat öncesinde destekçi şartnamesinde belirtilecektir."
+  },
+  "resources": {
+    "kicker": "Kaynaklar",
+    "title": "Destekçi kaynakları",
+    "lead": "Değerlendiriciler, ortaklar ve destekçiler için dokümantasyon. “Hazır” olarak işaretlenen maddeler şu an mevcuttur; diğerleri kampanya boyunca yayımlanır.",
+    "ready": "Hazır",
+    "soon": "Yakında",
+    "items": {
+      "whitepaper": "Teknik teknik rapor",
+      "datasheet": "Ürün teknik föyü",
+      "pressKit": "Basın kiti",
+      "termSheet": "Destekçi şartnamesi",
+      "parol6": "PAROL6 kılavuzu"
+    },
+    "download": "İndir"
+  },
+  "faq": {
+    "kicker": "SSS",
+    "title": "Sorular, dürüstçe yanıtlandı",
+    "lead": "Destekçilerin ve üreticilerin en çok sorduğu konular. Bir şey belirsizse, bunu söyleriz.",
+    "items": {
+      "cropsQ": "E-Farm hangi ürünleri hasat eder?",
+      "cropsA": "Görü modeli beş ürün için eğitildi: çilek, domates, biber, salatalık ve patlıcan. Performans ürüne ve yetiştirme sistemine göre değişir; bugün en olgun olanlar çilek ve domatestir.",
+      "accuracyQ": "“%98 doğruluk” aslında ne anlama geliyor?",
+      "accuracyA": "Bu, YOLOv8 modelimizin kendi ayrı tuttuğumuz proje test kümesindeki olgunluk tespiti doğruluğudur — iddia edildiği şekliyle bildirilen bir iç değerlendirmedir. Her serada toplama başarısının garantisi değildir; sahadaki performans aydınlatmaya, örtüşmeye ve ürün düzenine bağlıdır.",
+      "deliveryQ": "Robotlar ne zaman sevk edilecek ve riskler nelerdir?",
+      "deliveryA": "E-Farm, pilota doğru ilerleyen bir prototiptir. Yol haritası, 2026'da ön seri üretimi ve 2027'de filo yayılımını hedefliyor. Donanım takvimleri gerçek risk taşır: tedarik zincirleri, sertifikasyon ve saha doğrulaması gecikebilir. Değişiklikleri şeffaf biçimde duyuracağız.",
+      "opensourceQ": "Neden PAROL6 ve diğer açık kaynaklı projeler üzerine inşa ediliyor?",
+      "opensourceA": "PAROL6 (GPLv3), MoveIt 2 ve ROS 2 gibi açık temeller denetlenebilir, iyi belgelenmiş ve tedarikçi bağımlılığından uzaktır. Küçük bir ekibin güvenilir biçimde inşa etmesini ve destekçilerin neyi finanse ettiklerini incelemesini sağlar. Her projenin lisansına saygı gösteririz.",
+      "safetyQ": "Güvenli mi ve CE işareti durumu nedir?",
+      "safetyA": "Robot, kuvvet kontrollü kavrama ile düzenli sera sıralarında çalışır. Tam makine güvenliği uygunluğu ve CE işareti, pilottan üretime geçiş yolunun parçasıdır ve henüz tamamlanmamıştır; bunları herhangi bir ticari teslimat öncesinde geçilmesi zorunlu gereksinimler olarak ele alıyoruz.",
+      "refundQ": "İade / iptal politikası nedir?",
+      "refundA": "Destekler kampanya taahhütleridir, nihai satın almalar değildir. İade ve iptal şartları, herhangi bir tahsilat kesinleşmeden önce destekçi şartnamesinde tanımlanacaktır. Tamamlama yükümlülüğü olmadan bir kontenjan ayırmak için şimdi rezervasyon yapın.",
+      "privacyQ": "Verilerim nasıl işleniyor?",
+      "privacyA": "Rezervasyon formu verileri, sizinle iletişime geçmek üzere yalnızca E-Farm ekibine Formspree aracılığıyla gönderilir. Verilerinizi satmıyoruz. Robot telemetrisi, üreticinin filo hesabı içinde kalır.",
+      "reservationQ": "Üretici rezervasyonu nasıl işliyor?",
+      "reservationA": "Rezervasyon formu, ticari üretici olarak ilginizi kaydeder — ürün, sera büyüklüğü ve iletişim. Bağlayıcı değildir ve sizi yalnızca pilot sırasına ve öncelikli yayılım listemize ekler."
+    }
+  },
+  "form": {
+    "kicker": "Rezervasyon",
+    "title": "Üretici olarak rezervasyon yap",
+    "lead": "Seranızdan bahsedin, sizi pilot sırasında tutalım. Ödeme yok, yükümlülük yok.",
+    "company": "Şirket adı",
+    "contact": "İletişim kişisi",
+    "email": "E-posta",
+    "country": "Ülke",
+    "crop": "Ana ürün",
+    "cropSelect": "Bir ürün seçin",
+    "cropStrawberry": "Çilek",
+    "cropTomato": "Domates",
+    "cropPepper": "Biber",
+    "cropCucumber": "Salatalık",
+    "cropEggplant": "Patlıcan",
+    "cropOther": "Diğer",
+    "size": "Sera büyüklüğü (ha)",
+    "message": "Mesaj",
+    "messagePlaceholder": "İşletmeniz hakkında bilmemizi istediğiniz her şey…",
+    "required": "zorunlu",
+    "submit": "Rezervasyonu gönder",
+    "sending": "Gönderiliyor…",
+    "success": "Teşekkürler — rezervasyonunuz E-Farm ekibine ulaştı. Sizinle iletişime geçeceğiz.",
+    "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin veya bize doğrudan e-posta gönderin.",
+    "note": "Gönderimler E-Farm ekibine iletilir. Verilerinizi asla satmayız.",
+    "subject": "Yeni E-Farm üretici rezervasyonu"
+  },
+  "footer": {
+    "tagline": "Otonom sera meyve hasadı robotları.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "github": "GitHub",
+    "backerkit": "BackerKit",
+    "docs": "Dokümantasyon",
+    "privacy": "Gizlilik",
+    "terms": "Koşullar",
+    "social": "Sosyal medya",
+    "attribution": "Manipülatör PAROL6 (GPLv3) temellidir. Astro ile geliştirildi.",
+    "rights": "E-Farm. Tüm hakları saklıdır.",
+    "location": "Gebze Bilişim Vadisi, Türkiye"
+  }
 }

@@ -1,3 +1,261 @@
 {
-  "_note": "Translations fall back to English (en.json) until localized. See README."
+  "nav": {
+    "howItWorks": "Funktionsweise",
+    "technology": "Technologie",
+    "market": "Markt",
+    "pledge": "Unterstützen",
+    "faq": "FAQ",
+    "cta": "Auf BackerKit unterstützen",
+    "menu": "Menü",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "hero": {
+    "badge": "Autonome Ernte im Gewächshaus",
+    "titleLead": "Eine Ernte, die niemals",
+    "titleHighlight": "schläft",
+    "subtitle": "E-Farm ist ein autonomer Roboter, der reife Früchte in Gewächshausreihen erkennt, lokalisiert und behutsam pflückt — er verbindet ein YOLOv8-Bildverarbeitungsmodell mit LiDAR-Tiefenmessung und einem millimetergenauen 6-Achs-Arm.",
+    "ctaPrimary": "Auf BackerKit unterstützen",
+    "ctaSecondary": "Als Erzeuger reservieren",
+    "imageAlt": "Rendering des autonomen Ernteroboters E-Farm in einer Gewächshausreihe",
+    "fallback": "Hero-Rendering folgt in Kürze",
+    "chips": {
+      "accuracy": "98 % Erkennung",
+      "images": "10.000+ Bilder",
+      "crops": "5 Kulturen",
+      "precision": "mm-genauer Arm",
+      "open": "Open-Source-Kern"
+    }
+  },
+  "problem": {
+    "kicker": "Das Problem",
+    "title": "Gewächshäusern gehen die Hände aus",
+    "lead": "Der geschützte Anbau wächst, während die landwirtschaftlichen Arbeitskräfte schwinden. Erntearbeit ist saisonal, knapp und zunehmend teuer — und reife Früchte warten nicht.",
+    "stats": {
+      "ftaValue": "~3,5 Mio.",
+      "ftaLabel": "In der EU verlorene Vollzeit-Arbeitsplätze in der Landwirtschaft, 2009–2024",
+      "youngValue": "~11 %",
+      "youngLabel": "Der EU-Betriebe werden von Personen unter 40 geführt",
+      "usValue": "~2,4 Mio.",
+      "usLabel": "Offene Stellen in der US-Landwirtschaft (56 % der Landwirte melden Engpässe)",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Gewächshausfläche in der Türkei (allein Antalya ≈ 46 %)"
+    },
+    "note": "Die weltweite Gewächshausfläche ist groß und wächst weiter: Niederlande ~10.260 ha, Spanien ~76.600 ha (Almería ~40.000 ha). Die strukturierten, wiederkehrenden Reihen des geschützten Anbaus sind eine ideale Umgebung für die selektive robotergestützte Ernte."
+  },
+  "how": {
+    "kicker": "Funktionsweise",
+    "title": "Eine vierstufige Erntepipeline",
+    "lead": "Jede reife Frucht durchläuft denselben geschlossenen Kreislauf — von der Wahrnehmung bis zur Manipulation — viele Male pro Minute.",
+    "steps": {
+      "detectTitle": "1 · Erkennen",
+      "detectBody": "Ein YOLOv8-Modell klassifiziert Frucht und Reifegrad im Live-Kamerabild und isoliert nur das erntereife Obst.",
+      "localizeTitle": "2 · Lokalisieren",
+      "localizeBody": "LiDAR- und RGB-D-Tiefendaten werden mit der Erkennung fusioniert, um jede Frucht mit Subzentimeter-Genauigkeit im 3D-Raum zu verorten.",
+      "graspTitle": "3 · Anfahren & Greifen",
+      "graspBody": "Der 6-Achs-Arm PAROL6 plant eine kollisionsbewusste Bahn und schließt einen kraftgeregelten Greifer für ein behutsames, druckstellenfreies Pflücken.",
+      "depositTitle": "4 · Ablegen",
+      "depositBody": "Die geerntete Frucht wird in das bordeigene Tablett gelegt; Telemetrie- und Ertragsdaten werden an das Flotten-Dashboard übertragen."
+    }
+  },
+  "tech": {
+    "kicker": "Technologie",
+    "title": "Auf offenen Robotik-Grundlagen aufgebaut",
+    "lead": "E-Farm fügt bewährte Open-Source-Bausteine zu einem produktionsreifen Ernte-Stack zusammen — überprüfbar, erweiterbar und glaubwürdig konstruiert.",
+    "repo": "Quellcode auf GitHub ansehen",
+    "cards": {
+      "visionTitle": "Computer Vision",
+      "visionBody": "YOLOv8-Erkennung (Ultralytics) und Reifegrad-Klassifizierung, trainiert über Roboflow mit mehr als 10.000 annotierten Bildern.",
+      "lidarTitle": "LiDAR-Tiefenmessung",
+      "lidarBody": "LiDAR- + Intel-RealSense-RGB-D-Fusion für eine robuste 3D-Lokalisierung von Früchten bei wechselndem Gewächshauslicht.",
+      "armTitle": "6-Achs-Arm",
+      "armBody": "PAROL6 Open-Hardware-Manipulator (GPLv3), angesteuert über die MoveIt 2 Bewegungsplanung.",
+      "rosTitle": "ROS 2",
+      "rosBody": "ROS 2 Humble orchestriert Wahrnehmung, Planung und Steuerung als kombinierbare, testbare Knoten.",
+      "bmsTitle": "Batteriemanagement",
+      "bmsBody": "LiFePO4-Akkupack mit einem ESP32-basierten BMS, angelehnt an die offene BMS-Referenz foxBMS.",
+      "fleetTitle": "Flotte & IoT",
+      "fleetBody": "MQTT-Telemetrie speist ein Web-Flotten-Dashboard und eine begleitende Mobile-App zur Fernüberwachung."
+    },
+    "foundations": "Open-Source-Grundlagen: Ultralytics YOLOv8 · PAROL6 · MoveIt 2 · Intel RealSense · foxBMS · ROS 2."
+  },
+  "specs": {
+    "kicker": "Datenblatt",
+    "title": "Technische Spezifikationen",
+    "lead": "Konstruktionskennzahlen für den aktuellen Prototyp. Mit „Ziel“ markierte Punkte sind Designvorgaben für die Pilot- und Serienversion.",
+    "colSpec": "Spezifikation",
+    "colValue": "Wert",
+    "colNote": "Hinweis"
+  },
+  "ai": {
+    "kicker": "Vision & KI",
+    "title": "Reife erkennen, nicht nur Früchte",
+    "lead": "E-Farms eigenes YOLOv8-Modell erreicht auf seinem Projekt-Testset 98 % Genauigkeit bei der Reifegrad-Erkennung, trainiert mit über 10.000 annotierten Bildern aus fünf Kulturen.",
+    "claimTitle": "Die Angabe von E-Farm",
+    "claimBody": "98 % Genauigkeit bei der Reifegrad-Erkennung auf dem Projekt-Testset (YOLOv8, trainiert über Roboflow mit über 10.000 Bildern, 5 Kulturen). Dies ist unsere interne Auswertung, angegeben als eigene Angabe.",
+    "contextTitle": "Einordnung in die Literatur",
+    "contextBody": "Zum externen Vergleich: Veröffentlichte und kommerzielle Systeme berichten von Reife-/Auswahlgenauigkeiten in einem ähnlichen Bereich — z. B. nennt Four Growers 98 % Reife-Auswahl, Tomatenstudien berichten ~86 % und Erdbeerstudien ~95 %. Dies sind unabhängige Ergebnisse, getrennt von E-Farms eigener Angabe.",
+    "contextLink": "Quellen ansehen",
+    "boxLabel": "reif 0,98",
+    "boxLabelAlt": "unreif 0,71",
+    "mockCaption": "Beispielhafte Erkennungsüberlagerung — Begrenzungsrahmen und Konfidenzwerte dienen der Veranschaulichung."
+  },
+  "bms": {
+    "kicker": "Energie",
+    "title": "Energie für eine ganze Schicht",
+    "lead": "Ein LiFePO4-Akkupack, überwacht von einem ESP32-basierten Batteriemanagementsystem, liefert eine angestrebte Laufzeit von ~8 Stunden, mit Echtzeit-Zelltelemetrie für Sicherheit und Verfügbarkeit.",
+    "point1": "LiFePO4-Chemie für lange Zyklenlebensdauer und thermische Stabilität.",
+    "point2": "Das ESP32-BMS misst Spannung, Strom und Temperatur pro Zelle.",
+    "point3": "Telemetrie wird an das Flotten-Dashboard für vorausschauende Wartung übertragen.",
+    "attribution": "Die BMS-Architektur orientiert sich an der Open-Source-Referenz foxBMS.",
+    "diagram": {
+      "cells": "LiFePO4-Zellen",
+      "bms": "ESP32-BMS",
+      "telemetry": "Telemetrie"
+    }
+  },
+  "chassis": {
+    "kicker": "Mobilität",
+    "title": "Eine Basis, gebaut für die Reihen",
+    "lead": "Die mobile Basis von E-Farm leitet sich von der Rocker-Differential-Geometrie des NASA JPL Open Source Rover ab und hält alle Räder auf unebenen Gewächshausböden und Rampen am Boden.",
+    "point1": "Rocker-Differential-Aufhängung für stabiles Überfahren von Unebenheiten und Schienen.",
+    "point2": "Kompakte Stellfläche, ausgelegt auf den Standard-Reihenabstand im Gewächshaus.",
+    "point3": "Niedriger Schwerpunkt, der Akku, Rechner und Arm trägt.",
+    "diagramAlt": "Schematische Seitenansicht des Rocker-Differential-Fahrwerks"
+  },
+  "market": {
+    "kicker": "Markt",
+    "title": "Ein Markt, der auf 56 Mrd. $ zuwächst",
+    "lead": "Der Markt für Agrarroboter soll von 17,73 Mrd. USD im Jahr 2025 auf 56,26 Mrd. USD bis 2030 wachsen — eine CAGR von 26,0 %. Die selektive Ernte ist eine seiner schwierigsten und wertvollsten Grenzbereiche.",
+    "chartTitle": "Marktgröße für Agrarroboter (in Mrd. USD)",
+    "chartSource": "Quelle: MarketsandMarkets, 2025. Die Jahreswerte sind zwischen den Ankerwerten 2025 und 2030 interpoliert.",
+    "stats": {
+      "cagrValue": "26,0 %",
+      "cagrLabel": "Markt-CAGR, 2025–2030",
+      "sizeValue": "$56.26B",
+      "sizeLabel": "Prognostizierte Marktgröße bis 2030",
+      "laborValue": "56 %",
+      "laborLabel": "US-Landwirte, die Arbeitskräftemangel melden",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Gewächshausfläche in der Türkei"
+    }
+  },
+  "competitors": {
+    "kicker": "Umfeld",
+    "title": "Wo E-Farm hineinpasst",
+    "lead": "Das Feld der Ernteroboter ist real und gut finanziert. E-Farms Alleinstellungsmerkmal ist ein offener, überprüfbarer Stack für fünf Gewächshauskulturen zu einem Zielpreis, der auf Erzeuger in Schwellenmärkten zugeschnitten ist. Klicken Sie auf eine Spalte zum Sortieren.",
+    "sortHint": "Klicken Sie auf eine Spaltenüberschrift zum Sortieren.",
+    "us": "Das sind wir"
+  },
+  "refs": {
+    "kicker": "Belege",
+    "title": "Ausgewählte Quellen",
+    "lead": "Begutachtete und Preprint-Literatur, die E-Farms Ansatz für Wahrnehmung, Lokalisierung und Ernte untermauert."
+  },
+  "team": {
+    "kicker": "Team",
+    "title": "Drei Jahre fokussierte Forschung & Entwicklung",
+    "lead": "E-Farm wurde 2022 im Gebze Bilişim Vadisi (Informatik-Tal) gegründet. Ein fünfköpfiges, interdisziplinäres Team hat drei Jahre damit verbracht, eine Forschungsidee in einen funktionierenden Prototyp zu verwandeln.",
+    "disciplines": {
+      "cv": "Computer Vision",
+      "robotics": "Robotik & Bewegungsplanung",
+      "embedded": "Eingebettete Systeme",
+      "mechanical": "Mechanische Konstruktion",
+      "software": "Software & Cloud"
+    },
+    "note": "Wir sind ein Ingenieurteam, kein Marketingteam — jede Aussage auf dieser Seite können wir demonstrieren oder belegen."
+  },
+  "roadmap": {
+    "kicker": "Roadmap",
+    "title": "Von der Idee zur Flotte",
+    "lead": "Wo wir gewesen sind und wohin wir gehen. Meilensteine ab 2025 sind Ziele, keine abgeschlossenen Arbeiten.",
+    "targetBadge": "Ziel"
+  },
+  "tiers": {
+    "kicker": "Unterstützen",
+    "title": "Unterstütze die Ernte",
+    "lead": "Wählen Sie eine Unterstützungsstufe. Alle Preise sind illustrative Zielwerte für die Kampagne und können sich vor dem endgültigen Term Sheet ändern.",
+    "cta": "Auf BackerKit unterstützen",
+    "limited": "Limitiert",
+    "termSheet": "Unterstützungen sind Zusagen an die Kampagne, kein endgültiger Kauf. Endgültige Preise, Spezifikationen und Lieferbedingungen werden vor jeder Belastung im Backer-Term-Sheet festgelegt."
+  },
+  "resources": {
+    "kicker": "Ressourcen",
+    "title": "Ressourcen für Unterstützer",
+    "lead": "Dokumentation für Prüfer, Partner und Unterstützer. Mit „verfügbar“ markierte Punkte sind jetzt erhältlich; andere erscheinen im Laufe der Kampagne.",
+    "ready": "Verfügbar",
+    "soon": "Demnächst",
+    "items": {
+      "whitepaper": "Technisches Whitepaper",
+      "datasheet": "Produktdatenblatt",
+      "pressKit": "Pressemappe",
+      "termSheet": "Backer-Term-Sheet",
+      "parol6": "PAROL6-Handbuch"
+    },
+    "download": "Herunterladen"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Fragen, ehrlich beantwortet",
+    "lead": "Die Fragen, die Unterstützer und Erzeuger am häufigsten stellen. Wenn etwas unsicher ist, sagen wir es.",
+    "items": {
+      "cropsQ": "Welche Kulturen erntet E-Farm?",
+      "cropsA": "Das Bildverarbeitungsmodell ist für fünf Kulturen trainiert: Erdbeere, Tomate, Paprika, Gurke und Aubergine. Die Leistung variiert je nach Kultur und Anbausystem; Erdbeere und Tomate sind heute am ausgereiftesten.",
+      "accuracyQ": "Was bedeutet „98 % Genauigkeit“ tatsächlich?",
+      "accuracyA": "Es ist die Reifegrad-Erkennungsgenauigkeit unseres YOLOv8-Modells auf unserem eigenen, zurückgehaltenen Projekt-Testset — eine interne Auswertung, angegeben als eigene Angabe. Es ist keine Garantie für den Pflückerfolg in jedem Gewächshaus; die Feldleistung hängt von Beleuchtung, Verdeckung und Kulturanordnung ab.",
+      "deliveryQ": "Wann werden die Roboter ausgeliefert, und welche Risiken bestehen?",
+      "deliveryA": "E-Farm ist ein Prototyp auf dem Weg zum Pilotbetrieb. Die Roadmap zielt auf eine Vorserienproduktion 2026 und einen Flotteneinsatz 2027. Hardware-Zeitpläne bergen reale Risiken: Lieferketten, Zertifizierung und Feldvalidierung können sich verzögern. Wir kommunizieren Änderungen transparent.",
+      "opensourceQ": "Warum auf PAROL6 und anderen Open-Source-Projekten aufbauen?",
+      "opensourceA": "Offene Grundlagen wie PAROL6 (GPLv3), MoveIt 2 und ROS 2 sind überprüfbar, gut dokumentiert und vermeiden Hersteller-Lock-in. Sie ermöglichen es einem kleinen Team, glaubwürdig zu bauen, und erlauben Unterstützern zu prüfen, was sie finanzieren. Wir respektieren die Lizenz jedes Projekts.",
+      "safetyQ": "Ist es sicher, und wie steht es um die CE-Kennzeichnung?",
+      "safetyA": "Der Roboter arbeitet in strukturierten Gewächshausreihen mit kraftgeregeltem Greifen. Die vollständige Maschinensicherheitskonformität und die CE-Kennzeichnung sind Teil des Wegs vom Pilot- zum Serienbetrieb und noch nicht abgeschlossen; wir behandeln sie als zwingende Voraussetzungen vor jeder kommerziellen Auslieferung.",
+      "refundQ": "Wie sieht die Rückerstattungs-/Stornierungsrichtlinie aus?",
+      "refundA": "Unterstützungen sind Kampagnenzusagen, kein endgültiger Kauf. Rückerstattungs- und Stornierungsbedingungen werden vor jeder endgültigen Belastung im Backer-Term-Sheet festgelegt. Reservieren Sie jetzt, um einen Platz zu sichern, ohne zum Abschluss verpflichtet zu sein.",
+      "privacyQ": "Wie werden meine Daten verarbeitet?",
+      "privacyA": "Die Daten aus dem Reservierungsformular werden ausschließlich über Formspree an das E-Farm-Team gesendet, um sich bei Ihnen zu melden. Wir verkaufen Ihre Daten nicht. Die Robotertelemetrie bleibt innerhalb des Flottenkontos des Erzeugers.",
+      "reservationQ": "Wie funktioniert die Erzeuger-Reservierung?",
+      "reservationA": "Das Reservierungsformular registriert Ihr Interesse als kommerzieller Erzeuger — Kultur, Gewächshausgröße und Kontakt. Es ist unverbindlich und stellt Sie einfach in die Pilot-Warteschlange und auf unsere Liste für die bevorzugte Bereitstellung."
+    }
+  },
+  "form": {
+    "kicker": "Reservieren",
+    "title": "Als Erzeuger reservieren",
+    "lead": "Erzählen Sie uns von Ihrem Gewächshaus, und wir behalten Sie in der Pilot-Warteschlange. Keine Zahlung, keine Verpflichtung.",
+    "company": "Firmenname",
+    "contact": "Ansprechpartner",
+    "email": "E-Mail",
+    "country": "Land",
+    "crop": "Hauptkultur",
+    "cropSelect": "Kultur auswählen",
+    "cropStrawberry": "Erdbeere",
+    "cropTomato": "Tomate",
+    "cropPepper": "Paprika",
+    "cropCucumber": "Gurke",
+    "cropEggplant": "Aubergine",
+    "cropOther": "Sonstige",
+    "size": "Gewächshausgröße (ha)",
+    "message": "Nachricht",
+    "messagePlaceholder": "Alles, was wir über Ihren Betrieb wissen sollten…",
+    "required": "erforderlich",
+    "submit": "Reservierung absenden",
+    "sending": "Wird gesendet…",
+    "success": "Vielen Dank — Ihre Reservierung hat das E-Farm-Team erreicht. Wir melden uns bei Ihnen.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt eine E-Mail.",
+    "note": "Einsendungen werden an das E-Farm-Team übermittelt. Wir verkaufen Ihre Daten niemals.",
+    "subject": "Neue E-Farm-Erzeugerreservierung"
+  },
+  "footer": {
+    "tagline": "Autonome Roboter zur Obsternte im Gewächshaus.",
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "github": "GitHub",
+    "backerkit": "BackerKit",
+    "docs": "Dokumentation",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "social": "Soziale Medien",
+    "attribution": "Manipulator basierend auf PAROL6 (GPLv3). Erstellt mit Astro.",
+    "rights": "E-Farm. Alle Rechte vorbehalten.",
+    "location": "Gebze Bilişim Vadisi, Türkei"
+  }
 }

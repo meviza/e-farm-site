@@ -1,3 +1,261 @@
 {
-  "_note": "Translations fall back to English (en.json) until localized. See README."
+  "nav": {
+    "howItWorks": "Fonctionnement",
+    "technology": "Technologie",
+    "market": "Marché",
+    "pledge": "Soutenir",
+    "faq": "FAQ",
+    "cta": "Soutenir sur BackerKit",
+    "menu": "Menu",
+    "skipToContent": "Aller au contenu"
+  },
+  "hero": {
+    "badge": "Récolte autonome sous serre",
+    "titleLead": "Une récolte qui ne",
+    "titleHighlight": "dort jamais",
+    "subtitle": "E-Farm est un robot autonome qui détecte, localise et cueille délicatement les fruits mûrs dans les rangs de serre — en associant un modèle de vision YOLOv8 à la profondeur LiDAR et à un bras à 6 axes d'une précision millimétrique.",
+    "ctaPrimary": "Soutenir sur BackerKit",
+    "ctaSecondary": "Réserver en tant que producteur",
+    "imageAlt": "Rendu du robot de récolte autonome E-Farm dans un rang de serre",
+    "fallback": "Rendu du visuel principal à venir",
+    "chips": {
+      "accuracy": "98 % de détection",
+      "images": "10 000+ images",
+      "crops": "5 cultures",
+      "precision": "bras précis au mm",
+      "open": "cœur open source"
+    }
+  },
+  "problem": {
+    "kicker": "Le problème",
+    "title": "Les serres manquent de bras",
+    "lead": "Les cultures protégées se développent tandis que la main-d'œuvre agricole diminue. Le travail de récolte est saisonnier, rare et de plus en plus coûteux — et les fruits mûrs n'attendent pas.",
+    "stats": {
+      "ftaValue": "~3,5 M",
+      "ftaLabel": "Emplois agricoles à temps plein perdus dans l'UE, 2009–2024",
+      "youngValue": "~11 %",
+      "youngLabel": "Des exploitations de l'UE sont dirigées par des personnes de moins de 40 ans",
+      "usValue": "~2,4 M",
+      "usLabel": "Postes agricoles vacants aux États-Unis (56 % des agriculteurs signalent des pénuries)",
+      "ghValue": "77 600 ha",
+      "ghLabel": "Surface de serres en Turquie (Antalya seule ≈ 46 %)"
+    },
+    "note": "La surface de serres dans le monde est vaste et en croissance : Pays-Bas ~10 260 ha, Espagne ~76 600 ha (Almería ~40 000 ha). Les rangs structurés et reproductibles des cultures protégées constituent un environnement idéal pour la récolte robotisée sélective."
+  },
+  "how": {
+    "kicker": "Fonctionnement",
+    "title": "Un pipeline de récolte en quatre étapes",
+    "lead": "Chaque fruit mûr passe par la même boucle fermée — de la perception à la manipulation — plusieurs fois par minute.",
+    "steps": {
+      "detectTitle": "1 · Détecter",
+      "detectBody": "Un modèle YOLOv8 classe le fruit et sa maturité dans le flux caméra en direct, isolant uniquement les produits prêts à être cueillis.",
+      "localizeTitle": "2 · Localiser",
+      "localizeBody": "Le LiDAR et la profondeur RGB-D fusionnent avec la détection pour placer chaque fruit dans l'espace 3D avec une précision infracentimétrique.",
+      "graspTitle": "3 · Approcher & saisir",
+      "graspBody": "Le bras à 6 axes PAROL6 planifie une trajectoire anticollision et ferme une pince à force contrôlée pour une cueillette douce, sans meurtrissure.",
+      "depositTitle": "4 · Déposer",
+      "depositBody": "Le fruit récolté est placé dans le bac embarqué ; les données de télémétrie et de rendement sont transmises au tableau de bord de la flotte."
+    }
+  },
+  "tech": {
+    "kicker": "Technologie",
+    "title": "Bâti sur des fondations robotiques ouvertes",
+    "lead": "E-Farm assemble des briques open source éprouvées en une plateforme de récolte prête pour la production — auditable, extensible et conçue avec rigueur.",
+    "repo": "Consulter le code source sur GitHub",
+    "cards": {
+      "visionTitle": "Vision par ordinateur",
+      "visionBody": "Détection et classification de maturité YOLOv8 (Ultralytics), entraînées via Roboflow sur plus de 10 000 images annotées.",
+      "lidarTitle": "Profondeur LiDAR",
+      "lidarBody": "Fusion LiDAR + RGB-D Intel RealSense pour une localisation 3D robuste des fruits sous un éclairage de serre variable.",
+      "armTitle": "Bras à 6 axes",
+      "armBody": "Manipulateur open hardware PAROL6 (GPLv3), piloté par la planification de mouvement MoveIt 2.",
+      "rosTitle": "ROS 2",
+      "rosBody": "ROS 2 Humble orchestre la perception, la planification et le contrôle sous forme de nœuds composables et testables.",
+      "bmsTitle": "Gestion de batterie",
+      "bmsBody": "Pack LiFePO4 doté d'un BMS basé sur ESP32, inspiré de la référence open source foxBMS.",
+      "fleetTitle": "Flotte & IoT",
+      "fleetBody": "La télémétrie MQTT alimente un tableau de bord de flotte web et une application mobile complémentaire pour la supervision à distance."
+    },
+    "foundations": "Fondations open source : Ultralytics YOLOv8 · PAROL6 · MoveIt 2 · Intel RealSense · foxBMS · ROS 2."
+  },
+  "specs": {
+    "kicker": "Fiche technique",
+    "title": "Spécifications techniques",
+    "lead": "Données d'ingénierie du prototype actuel. Les éléments marqués « cible » sont des objectifs de conception pour les versions pilote et de production.",
+    "colSpec": "Spécification",
+    "colValue": "Valeur",
+    "colNote": "Note"
+  },
+  "ai": {
+    "kicker": "Vision & IA",
+    "title": "Voir la maturité, pas seulement le fruit",
+    "lead": "Le modèle YOLOv8 propre à E-Farm atteint 98 % de précision en détection de maturité sur son jeu de test projet, entraîné sur plus de 10 000 images annotées couvrant cinq cultures.",
+    "claimTitle": "L'affirmation d'E-Farm",
+    "claimBody": "98 % de précision en détection de maturité sur le jeu de test projet (YOLOv8 entraîné via Roboflow sur plus de 10 000 images, 5 cultures). Il s'agit de notre évaluation interne, présentée telle que revendiquée.",
+    "contextTitle": "Mise en contexte de la littérature",
+    "contextBody": "À titre de comparaison externe, les systèmes publiés et commerciaux rapportent des précisions de maturité/sélection dans une fourchette similaire — par ex. Four Growers annonce 98 % de sélection à maturité, les études sur la tomate rapportent ~86 % et celles sur la fraise ~95 %. Ce sont des résultats indépendants, distincts de l'affirmation propre à E-Farm.",
+    "contextLink": "Voir les références",
+    "boxLabel": "mûr 0,98",
+    "boxLabelAlt": "non mûr 0,71",
+    "mockCaption": "Superposition de détection à titre indicatif — les cadres de délimitation et les scores de confiance sont présentés à des fins de démonstration."
+  },
+  "bms": {
+    "kicker": "Énergie",
+    "title": "Une énergie qui tient toute une équipe",
+    "lead": "Un pack de batteries LiFePO4 supervisé par un système de gestion de batterie basé sur ESP32 offre une autonomie cible d'environ 8 heures, avec une télémétrie de cellules en temps réel pour la sécurité et la disponibilité.",
+    "point1": "Chimie LiFePO4 pour une longue durée de vie en cycles et une stabilité thermique.",
+    "point2": "Le BMS ESP32 mesure la tension, le courant et la température de chaque cellule.",
+    "point3": "La télémétrie est transmise au tableau de bord de la flotte pour la maintenance prédictive.",
+    "attribution": "Architecture du BMS inspirée de la référence open source foxBMS.",
+    "diagram": {
+      "cells": "Cellules LiFePO4",
+      "bms": "BMS ESP32",
+      "telemetry": "Télémétrie"
+    }
+  },
+  "chassis": {
+    "kicker": "Mobilité",
+    "title": "Une base conçue pour les rangs",
+    "lead": "La base mobile d'E-Farm s'inspire de la géométrie rocker-différentiel du NASA JPL Open Source Rover, gardant toutes les roues au sol sur les sols et rampes irréguliers des serres.",
+    "point1": "Suspension rocker-différentiel pour un franchissement stable des bosses et des rails.",
+    "point2": "Encombrement compact dimensionné pour l'espacement standard des rangs de serre.",
+    "point3": "Centre de gravité bas portant batterie, calculateur et bras.",
+    "diagramAlt": "Vue de côté schématique du châssis rocker-différentiel"
+  },
+  "market": {
+    "kicker": "Marché",
+    "title": "Un marché tendant vers 56 Md $",
+    "lead": "Le marché des robots agricoles devrait passer de 17,73 Md USD en 2025 à 56,26 Md USD d'ici 2030 — un TCAC de 26,0 %. La récolte sélective est l'une de ses frontières les plus difficiles et les plus prometteuses.",
+    "chartTitle": "Taille du marché des robots agricoles (en milliards USD)",
+    "chartSource": "Source : MarketsandMarkets, 2025. Valeurs annuelles interpolées entre les repères 2025 et 2030.",
+    "stats": {
+      "cagrValue": "26,0 %",
+      "cagrLabel": "TCAC du marché, 2025–2030",
+      "sizeValue": "$56.26B",
+      "sizeLabel": "Taille de marché projetée d'ici 2030",
+      "laborValue": "56 %",
+      "laborLabel": "Agriculteurs américains signalant des pénuries de main-d'œuvre",
+      "ghValue": "77 600 ha",
+      "ghLabel": "Surface de serres en Turquie"
+    }
+  },
+  "competitors": {
+    "kicker": "Paysage",
+    "title": "La place d'E-Farm",
+    "lead": "Le secteur des robots de récolte est réel et bien financé. Le facteur de différenciation d'E-Farm est une plateforme ouverte et auditable couvrant cinq cultures de serre, à un prix cible pensé pour les producteurs des marchés émergents. Cliquez sur une colonne pour trier.",
+    "sortHint": "Cliquez sur un en-tête de colonne pour trier.",
+    "us": "C'est nous"
+  },
+  "refs": {
+    "kicker": "Sources",
+    "title": "Références sélectionnées",
+    "lead": "Littérature évaluée par les pairs et en prépublication qui fonde l'approche d'E-Farm en matière de perception, de localisation et de récolte."
+  },
+  "team": {
+    "kicker": "Équipe",
+    "title": "Trois ans de R&D ciblée",
+    "lead": "E-Farm a été fondée en 2022 au Gebze Bilişim Vadisi (Vallée de l'Informatique). Une équipe pluridisciplinaire de cinq personnes a passé trois ans à transformer une idée de recherche en un prototype fonctionnel.",
+    "disciplines": {
+      "cv": "Vision par ordinateur",
+      "robotics": "Robotique & planification de mouvement",
+      "embedded": "Systèmes embarqués",
+      "mechanical": "Conception mécanique",
+      "software": "Logiciel & cloud"
+    },
+    "note": "Nous sommes une équipe d'ingénieurs, pas de marketing — chaque affirmation de cette page est quelque chose que nous pouvons démontrer ou citer."
+  },
+  "roadmap": {
+    "kicker": "Feuille de route",
+    "title": "De l'idée à la flotte",
+    "lead": "D'où nous venons et où nous allons. Les jalons à partir de 2025 sont des objectifs, et non des travaux achevés.",
+    "targetBadge": "Cible"
+  },
+  "tiers": {
+    "kicker": "Soutenir",
+    "title": "Soutenez la récolte",
+    "lead": "Choisissez un palier de contribution. Tous les prix sont des objectifs illustratifs pour la campagne et peuvent évoluer avant la finalisation de la term sheet.",
+    "cta": "Soutenir sur BackerKit",
+    "limited": "Limité",
+    "termSheet": "Les contributions sont des engagements envers la campagne, et non un achat définitif. Les prix, spécifications et conditions de livraison définitifs seront précisés dans la term sheet des contributeurs avant tout prélèvement."
+  },
+  "resources": {
+    "kicker": "Ressources",
+    "title": "Ressources pour les contributeurs",
+    "lead": "Documentation destinée aux évaluateurs, partenaires et contributeurs. Les éléments marqués « disponible » le sont dès maintenant ; les autres seront publiés pendant la campagne.",
+    "ready": "Disponible",
+    "soon": "Bientôt disponible",
+    "items": {
+      "whitepaper": "Livre blanc technique",
+      "datasheet": "Fiche produit",
+      "pressKit": "Kit presse",
+      "termSheet": "Term sheet des contributeurs",
+      "parol6": "Manuel PAROL6"
+    },
+    "download": "Télécharger"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Des questions, des réponses honnêtes",
+    "lead": "Les questions que les contributeurs et les producteurs posent le plus. Si quelque chose est incertain, nous le disons.",
+    "items": {
+      "cropsQ": "Quelles cultures E-Farm récolte-t-il ?",
+      "cropsA": "Le modèle de vision est entraîné pour cinq cultures : fraise, tomate, poivron, concombre et aubergine. Les performances varient selon la culture et le système de production ; la fraise et la tomate sont les plus matures à ce jour.",
+      "accuracyQ": "Que signifie réellement « 98 % de précision » ?",
+      "accuracyA": "Il s'agit de la précision de détection de maturité de notre modèle YOLOv8 sur notre propre jeu de test projet mis de côté — une évaluation interne, présentée telle que revendiquée. Ce n'est pas une garantie de réussite de cueillette dans chaque serre ; les performances sur le terrain dépendent de l'éclairage, des occlusions et de l'agencement des cultures.",
+      "deliveryQ": "Quand les robots seront-ils livrés, et quels sont les risques ?",
+      "deliveryA": "E-Farm est un prototype en route vers le pilote. La feuille de route vise une présérie en 2026 et un déploiement de flotte en 2027. Les calendriers matériels comportent des risques réels : chaînes d'approvisionnement, certification et validation sur le terrain peuvent prendre du retard. Nous communiquerons les changements en toute transparence.",
+      "opensourceQ": "Pourquoi bâtir sur PAROL6 et d'autres projets open source ?",
+      "opensourceA": "Des fondations ouvertes comme PAROL6 (GPLv3), MoveIt 2 et ROS 2 sont auditables, bien documentées et évitent la dépendance à un fournisseur. Elles permettent à une petite équipe de bâtir avec crédibilité et aux contributeurs d'inspecter ce qu'ils financent. Nous respectons la licence de chaque projet.",
+      "safetyQ": "Est-ce sûr, et qu'en est-il du marquage CE ?",
+      "safetyA": "Le robot opère dans des rangs de serre structurés avec une préhension à force contrôlée. La conformité complète à la sécurité des machines et le marquage CE font partie du parcours du pilote à la production et ne sont pas encore achevés ; nous les considérons comme des exigences incontournables avant toute livraison commerciale.",
+      "refundQ": "Quelle est la politique de remboursement / d'annulation ?",
+      "refundA": "Les contributions sont des engagements de campagne, et non des achats définitifs. Les conditions de remboursement et d'annulation seront définies dans la term sheet des contributeurs avant tout prélèvement définitif. Réservez dès maintenant pour bloquer une place, sans obligation de finaliser.",
+      "privacyQ": "Comment mes données sont-elles traitées ?",
+      "privacyA": "Les données du formulaire de réservation sont envoyées uniquement à l'équipe E-Farm pour assurer le suivi, via Formspree. Nous ne vendons pas vos données. La télémétrie du robot reste dans le compte de flotte du producteur.",
+      "reservationQ": "Comment fonctionne la réservation producteur ?",
+      "reservationA": "Le formulaire de réservation enregistre votre intérêt en tant que producteur commercial — culture, surface de serre et contact. Il est sans engagement et vous place simplement dans la file d'attente du pilote et sur notre liste de déploiement prioritaire."
+    }
+  },
+  "form": {
+    "kicker": "Réserver",
+    "title": "Réserver en tant que producteur",
+    "lead": "Parlez-nous de votre serre et nous vous garderons dans la file d'attente du pilote. Aucun paiement, aucune obligation.",
+    "company": "Nom de l'entreprise",
+    "contact": "Nom du contact",
+    "email": "E-mail",
+    "country": "Pays",
+    "crop": "Culture principale",
+    "cropSelect": "Sélectionnez une culture",
+    "cropStrawberry": "Fraise",
+    "cropTomato": "Tomate",
+    "cropPepper": "Poivron",
+    "cropCucumber": "Concombre",
+    "cropEggplant": "Aubergine",
+    "cropOther": "Autre",
+    "size": "Surface de serre (ha)",
+    "message": "Message",
+    "messagePlaceholder": "Tout ce que vous aimeriez nous faire savoir sur votre exploitation…",
+    "required": "obligatoire",
+    "submit": "Envoyer la réservation",
+    "sending": "Envoi en cours…",
+    "success": "Merci — votre réservation est bien parvenue à l'équipe E-Farm. Nous vous recontacterons.",
+    "error": "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement par e-mail.",
+    "note": "Les demandes sont transmises à l'équipe E-Farm. Nous ne vendons jamais vos données.",
+    "subject": "Nouvelle réservation producteur E-Farm"
+  },
+  "footer": {
+    "tagline": "Robots autonomes de récolte de fruits sous serre.",
+    "product": "Produit",
+    "company": "Entreprise",
+    "legal": "Mentions légales",
+    "github": "GitHub",
+    "backerkit": "BackerKit",
+    "docs": "Documentation",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "social": "Réseaux sociaux",
+    "attribution": "Manipulateur basé sur PAROL6 (GPLv3). Conçu avec Astro.",
+    "rights": "E-Farm. Tous droits réservés.",
+    "location": "Gebze Bilişim Vadisi, Turquie"
+  }
 }

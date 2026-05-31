@@ -1,3 +1,261 @@
 {
-  "_note": "Translations fall back to English (en.json) until localized. See README."
+  "nav": {
+    "howItWorks": "Hoe het werkt",
+    "technology": "Technologie",
+    "market": "Markt",
+    "pledge": "Steunen",
+    "faq": "FAQ",
+    "cta": "Steun op BackerKit",
+    "menu": "Menu",
+    "skipToContent": "Naar inhoud springen"
+  },
+  "hero": {
+    "badge": "Autonome kasoogst",
+    "titleLead": "Een oogst die nooit",
+    "titleHighlight": "slaapt",
+    "subtitle": "E-Farm is een autonome robot die rijp fruit in kasrijen detecteert, lokaliseert en voorzichtig plukt — door een YOLOv8-visiemodel te combineren met LiDAR-diepte en een 6-assige arm met millimeterprecisie.",
+    "ctaPrimary": "Steun op BackerKit",
+    "ctaSecondary": "Reserveren als teler",
+    "imageAlt": "Render van de autonome oogstrobot E-Farm in een kasrij",
+    "fallback": "Hero-render binnenkort beschikbaar",
+    "chips": {
+      "accuracy": "98% detectie",
+      "images": "10.000+ beelden",
+      "crops": "5 gewassen",
+      "precision": "mm-precieze arm",
+      "open": "open-source kern"
+    }
+  },
+  "problem": {
+    "kicker": "Het probleem",
+    "title": "Kassen komen handen tekort",
+    "lead": "Beschermde teelt groeit terwijl de landbouwarbeidskracht krimpt. Oogstwerk is seizoensgebonden, schaars en steeds duurder — en rijp fruit wacht niet.",
+    "stats": {
+      "ftaValue": "~3,5 mln",
+      "ftaLabel": "Voltijdse landbouwbanen verloren in de EU, 2009–2024",
+      "youngValue": "~11%",
+      "youngLabel": "Van de EU-landbouwbedrijven wordt geleid door mensen onder de 40",
+      "usValue": "~2,4 mln",
+      "usLabel": "Openstaande landbouwvacatures in de VS (56% van de boeren meldt tekorten)",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Kasoppervlak in Turkije (alleen Antalya al ≈ 46%)"
+    },
+    "note": "Het kasoppervlak wereldwijd is groot en groeit nog: Nederland ~10.260 ha, Spanje ~76.600 ha (Almería ~40.000 ha). De gestructureerde, herhaalbare rijen van beschermde teelt vormen een ideale omgeving voor selectieve robotoogst."
+  },
+  "how": {
+    "kicker": "Hoe het werkt",
+    "title": "Een oogstpijplijn in vier fasen",
+    "lead": "Elk rijp stuk fruit doorloopt dezelfde gesloten lus — van perceptie tot manipulatie — vele malen per minuut.",
+    "steps": {
+      "detectTitle": "1 · Detecteren",
+      "detectBody": "Een YOLOv8-model classificeert fruit en rijpheid in de live camerabeelden en isoleert alleen het plukrijpe product.",
+      "localizeTitle": "2 · Lokaliseren",
+      "localizeBody": "LiDAR en RGB-D-diepte versmelten met de detectie om elk stuk fruit met subcentimeter-nauwkeurigheid in de 3D-ruimte te plaatsen.",
+      "graspTitle": "3 · Naderen & grijpen",
+      "graspBody": "De 6-assige PAROL6-arm plant een botsingsbewust pad en sluit een krachtgestuurde grijper voor een zachte, kneusvrije pluk.",
+      "depositTitle": "4 · Afleggen",
+      "depositBody": "Het geoogste fruit wordt in de bak aan boord gelegd; telemetrie- en opbrengstgegevens worden naar het vlootdashboard gestreamd."
+    }
+  },
+  "tech": {
+    "kicker": "Technologie",
+    "title": "Gebouwd op open robotica-fundamenten",
+    "lead": "E-Farm voegt bewezen open-source bouwstenen samen tot een productieklare oogststack — controleerbaar, uitbreidbaar en geloofwaardig ontworpen.",
+    "repo": "Bekijk de broncode op GitHub",
+    "cards": {
+      "visionTitle": "Computervisie",
+      "visionBody": "YOLOv8-detectie (Ultralytics) en rijpheidsclassificatie, getraind via Roboflow op meer dan 10.000 gelabelde beelden.",
+      "lidarTitle": "LiDAR-diepte",
+      "lidarBody": "LiDAR- + Intel RealSense RGB-D-fusie voor robuuste 3D-lokalisatie van fruit onder wisselend kaslicht.",
+      "armTitle": "6-assige arm",
+      "armBody": "PAROL6 open-hardware manipulator (GPLv3), aangestuurd via MoveIt 2-bewegingsplanning.",
+      "rosTitle": "ROS 2",
+      "rosBody": "ROS 2 Humble orkestreert perceptie, planning en besturing als samenstelbare, testbare nodes.",
+      "bmsTitle": "Batterijbeheer",
+      "bmsBody": "LiFePO4-pakket met een ESP32-gebaseerd BMS, geïnspireerd op de open BMS-referentie foxBMS.",
+      "fleetTitle": "Vloot & IoT",
+      "fleetBody": "MQTT-telemetrie voedt een webvlootdashboard en een bijbehorende mobiele app voor monitoring op afstand."
+    },
+    "foundations": "Open-source fundamenten: Ultralytics YOLOv8 · PAROL6 · MoveIt 2 · Intel RealSense · foxBMS · ROS 2."
+  },
+  "specs": {
+    "kicker": "Datasheet",
+    "title": "Technische specificaties",
+    "lead": "Engineeringcijfers voor het huidige prototype. Items gemarkeerd als ‘doel’ zijn ontwerpdoelstellingen voor de pilot- en productieversies.",
+    "colSpec": "Specificatie",
+    "colValue": "Waarde",
+    "colNote": "Opmerking"
+  },
+  "ai": {
+    "kicker": "Visie & AI",
+    "title": "Rijpheid zien, niet alleen fruit",
+    "lead": "Het eigen YOLOv8-model van E-Farm haalt 98% rijpheidsdetectie-nauwkeurigheid op zijn projecttestset, getraind op meer dan 10.000 gelabelde beelden over vijf gewassen.",
+    "claimTitle": "De claim van E-Farm",
+    "claimBody": "98% rijpheidsdetectie-nauwkeurigheid op de projecttestset (YOLOv8 getraind via Roboflow op meer dan 10.000 beelden, 5 gewassen). Dit is onze interne evaluatie, gerapporteerd zoals geclaimd.",
+    "contextTitle": "Context uit de literatuur",
+    "contextBody": "Ter externe vergelijking: gepubliceerde en commerciële systemen rapporteren rijpheids-/selectienauwkeurigheden in een vergelijkbaar bereik — bijvoorbeeld Four Growers noemt 98% rijpheidsselectie, tomatenstudies rapporteren ~86% en aardbeienstudies ~95%. Dit zijn onafhankelijke resultaten, los van de eigen claim van E-Farm.",
+    "contextLink": "Bekijk de referenties",
+    "boxLabel": "rijp 0,98",
+    "boxLabelAlt": "onrijp 0,71",
+    "mockCaption": "Illustratieve detectie-overlay — begrenzingsvakken en betrouwbaarheid zijn ter demonstratie."
+  },
+  "bms": {
+    "kicker": "Energie",
+    "title": "Energie die een hele dienst meegaat",
+    "lead": "Een LiFePO4-accupakket, bewaakt door een ESP32-gebaseerd batterijbeheersysteem, levert een beoogde looptijd van ~8 uur, met live celtelemetrie voor veiligheid en beschikbaarheid.",
+    "point1": "LiFePO4-chemie voor een lange cyclusduur en thermische stabiliteit.",
+    "point2": "Het ESP32-BMS meet de spanning, stroom en temperatuur per cel.",
+    "point3": "Telemetrie wordt naar het vlootdashboard gestreamd voor voorspellend onderhoud.",
+    "attribution": "BMS-architectuur geïnspireerd op de open-source referentie foxBMS.",
+    "diagram": {
+      "cells": "LiFePO4-cellen",
+      "bms": "ESP32-BMS",
+      "telemetry": "Telemetrie"
+    }
+  },
+  "chassis": {
+    "kicker": "Mobiliteit",
+    "title": "Een onderstel gebouwd voor de rijen",
+    "lead": "Het mobiele onderstel van E-Farm is afgeleid van de rocker-differentieelgeometrie van de NASA JPL Open Source Rover, waardoor alle wielen contact houden met oneffen kasvloeren en hellingen.",
+    "point1": "Rocker-differentieelophanging voor stabiel rijden over hobbels en rails.",
+    "point2": "Compacte voetafdruk, afgestemd op de standaard rijafstand in de kas.",
+    "point3": "Laag zwaartepunt dat accu, rekeneenheid en arm draagt.",
+    "diagramAlt": "Schematisch zijaanzicht van het rocker-differentieelonderstel"
+  },
+  "market": {
+    "kicker": "Markt",
+    "title": "Een markt die toegroeit naar $56 mld",
+    "lead": "De markt voor landbouwrobots zal naar verwachting groeien van 17,73 mld USD in 2025 naar 56,26 mld USD in 2030 — een CAGR van 26,0%. Selectief oogsten is een van de moeilijkste en meest waardevolle grensgebieden.",
+    "chartTitle": "Marktomvang landbouwrobots (in miljarden USD)",
+    "chartSource": "Bron: MarketsandMarkets, 2025. Jaarwaarden geïnterpoleerd tussen de ankerpunten van 2025 en 2030.",
+    "stats": {
+      "cagrValue": "26,0%",
+      "cagrLabel": "Markt-CAGR, 2025–2030",
+      "sizeValue": "$56.26B",
+      "sizeLabel": "Verwachte marktomvang in 2030",
+      "laborValue": "56%",
+      "laborLabel": "Amerikaanse boeren die arbeidstekorten melden",
+      "ghValue": "77.600 ha",
+      "ghLabel": "Kasoppervlak in Turkije"
+    }
+  },
+  "competitors": {
+    "kicker": "Landschap",
+    "title": "Waar E-Farm past",
+    "lead": "Het veld van oogstrobots is reëel en goed gefinancierd. Het onderscheidende kenmerk van E-Farm is een open, controleerbare stack die vijf kasgewassen dekt tegen een streefprijs die is afgestemd op telers in opkomende markten. Klik op een kolom om te sorteren.",
+    "sortHint": "Klik op een kolomkop om te sorteren.",
+    "us": "Dat zijn wij"
+  },
+  "refs": {
+    "kicker": "Onderbouwing",
+    "title": "Geselecteerde referenties",
+    "lead": "Peer-reviewed en preprint-literatuur die de aanpak van E-Farm op het gebied van perceptie, lokalisatie en oogst onderbouwt."
+  },
+  "team": {
+    "kicker": "Team",
+    "title": "Drie jaar gerichte R&D",
+    "lead": "E-Farm werd in 2022 opgericht in Gebze Bilişim Vadisi (Informaticavallei). Een multidisciplinair team van vijf personen heeft drie jaar besteed aan het omzetten van een onderzoeksidee in een werkend prototype.",
+    "disciplines": {
+      "cv": "Computervisie",
+      "robotics": "Robotica & bewegingsplanning",
+      "embedded": "Embedded systemen",
+      "mechanical": "Mechanisch ontwerp",
+      "software": "Software & cloud"
+    },
+    "note": "Wij zijn een engineeringteam, geen marketingteam — elke bewering op deze pagina kunnen we aantonen of onderbouwen."
+  },
+  "roadmap": {
+    "kicker": "Roadmap",
+    "title": "Van idee tot vloot",
+    "lead": "Waar we vandaan komen en waar we naartoe gaan. Mijlpalen vanaf 2025 zijn doelen, geen voltooid werk.",
+    "targetBadge": "Doel"
+  },
+  "tiers": {
+    "kicker": "Steunen",
+    "title": "Steun de oogst",
+    "lead": "Kies een steunniveau. Alle prijzen zijn illustratieve doelen voor de campagne en kunnen wijzigen voordat de term sheet definitief is.",
+    "cta": "Steun op BackerKit",
+    "limited": "Beperkt",
+    "termSheet": "Bijdragen zijn toezeggingen aan de campagne, geen definitieve aankoop. Definitieve prijzen, specificaties en leveringsvoorwaarden worden vastgelegd in de term sheet voor backers vóór enige afschrijving."
+  },
+  "resources": {
+    "kicker": "Bronnen",
+    "title": "Bronnen voor backers",
+    "lead": "Documentatie voor beoordelaars, partners en backers. Items gemarkeerd als ‘beschikbaar’ zijn nu beschikbaar; andere verschijnen tijdens de campagne.",
+    "ready": "Beschikbaar",
+    "soon": "Binnenkort",
+    "items": {
+      "whitepaper": "Technisch whitepaper",
+      "datasheet": "Productdatasheet",
+      "pressKit": "Perskit",
+      "termSheet": "Term sheet voor backers",
+      "parol6": "PAROL6-handleiding"
+    },
+    "download": "Downloaden"
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Vragen, eerlijk beantwoord",
+    "lead": "De dingen die backers en telers het vaakst vragen. Als iets onzeker is, zeggen we dat.",
+    "items": {
+      "cropsQ": "Welke gewassen oogst E-Farm?",
+      "cropsA": "Het visiemodel is getraind voor vijf gewassen: aardbei, tomaat, paprika, komkommer en aubergine. De prestaties variëren per gewas en teeltsysteem; aardbei en tomaat zijn vandaag het meest uitgerijpt.",
+      "accuracyQ": "Wat betekent ‘98% nauwkeurigheid’ eigenlijk?",
+      "accuracyA": "Het is de rijpheidsdetectie-nauwkeurigheid van ons YOLOv8-model op onze eigen apart gehouden projecttestset — een interne evaluatie, gerapporteerd zoals geclaimd. Het is geen garantie voor pluksucces in elke kas; de prestaties in het veld hangen af van belichting, occlusie en gewaslay-out.",
+      "deliveryQ": "Wanneer worden de robots geleverd en wat zijn de risico's?",
+      "deliveryA": "E-Farm is een prototype op weg naar de pilotfase. De roadmap richt zich op een voorserie in 2026 en uitrol van de vloot in 2027. Hardwareplanningen brengen reële risico's met zich mee: toeleveringsketens, certificering en veldvalidatie kunnen uitlopen. We communiceren wijzigingen transparant.",
+      "opensourceQ": "Waarom bouwen op PAROL6 en andere open-source projecten?",
+      "opensourceA": "Open fundamenten zoals PAROL6 (GPLv3), MoveIt 2 en ROS 2 zijn controleerbaar, goed gedocumenteerd en vermijden leveranciersafhankelijkheid. Ze stellen een klein team in staat geloofwaardig te bouwen en laten backers inspecteren wat ze financieren. Wij respecteren de licentie van elk project.",
+      "safetyQ": "Is het veilig, en hoe zit het met CE-markering?",
+      "safetyA": "De robot werkt in gestructureerde kasrijen met krachtgestuurd grijpen. Volledige machineveiligheidsconformiteit en CE-markering maken deel uit van het traject van pilot naar productie en zijn nog niet voltooid; we behandelen ze als noodzakelijke voorwaarden vóór commerciële levering.",
+      "refundQ": "Wat is het terugbetalings-/annuleringsbeleid?",
+      "refundA": "Bijdragen zijn campagnetoezeggingen, geen definitieve aankopen. Terugbetalings- en annuleringsvoorwaarden worden vastgelegd in de term sheet voor backers voordat enige afschrijving wordt afgerond. Reserveer nu om een plek vast te leggen, zonder verplichting om de aankoop af te ronden.",
+      "privacyQ": "Hoe worden mijn gegevens verwerkt?",
+      "privacyA": "De gegevens uit het reserveringsformulier worden via Formspree alleen naar het E-Farm-team gestuurd om contact met je op te nemen. Wij verkopen je gegevens niet. Robottelemetrie blijft binnen het vlootaccount van de teler.",
+      "reservationQ": "Hoe werkt de reservering voor telers?",
+      "reservationA": "Het reserveringsformulier registreert je interesse als commerciële teler — gewas, kasgrootte en contact. Het is vrijblijvend en plaatst je eenvoudigweg in de pilotwachtrij en op onze lijst voor prioritaire uitrol."
+    }
+  },
+  "form": {
+    "kicker": "Reserveren",
+    "title": "Reserveren als teler",
+    "lead": "Vertel ons over je kas en we houden je in de pilotwachtrij. Geen betaling, geen verplichting.",
+    "company": "Bedrijfsnaam",
+    "contact": "Naam contactpersoon",
+    "email": "E-mail",
+    "country": "Land",
+    "crop": "Hoofdgewas",
+    "cropSelect": "Selecteer een gewas",
+    "cropStrawberry": "Aardbei",
+    "cropTomato": "Tomaat",
+    "cropPepper": "Paprika",
+    "cropCucumber": "Komkommer",
+    "cropEggplant": "Aubergine",
+    "cropOther": "Overig",
+    "size": "Kasgrootte (ha)",
+    "message": "Bericht",
+    "messagePlaceholder": "Alles wat je ons wilt laten weten over je bedrijf…",
+    "required": "verplicht",
+    "submit": "Reservering verzenden",
+    "sending": "Bezig met verzenden…",
+    "success": "Bedankt — je reservering heeft het E-Farm-team bereikt. We nemen contact met je op.",
+    "error": "Er is iets misgegaan. Probeer het opnieuw of stuur ons rechtstreeks een e-mail.",
+    "note": "Inzendingen worden bezorgd bij het E-Farm-team. Wij verkopen je gegevens nooit.",
+    "subject": "Nieuwe E-Farm-telerreservering"
+  },
+  "footer": {
+    "tagline": "Autonome robots voor fruitoogst in de kas.",
+    "product": "Product",
+    "company": "Bedrijf",
+    "legal": "Juridisch",
+    "github": "GitHub",
+    "backerkit": "BackerKit",
+    "docs": "Documentatie",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "social": "Sociale media",
+    "attribution": "Manipulator gebaseerd op PAROL6 (GPLv3). Gebouwd met Astro.",
+    "rights": "E-Farm. Alle rechten voorbehouden.",
+    "location": "Gebze Bilişim Vadisi, Turkije"
+  }
 }
